@@ -1,0 +1,61 @@
+.jykimg{
+	padding-top: 35px;
+	float: right;
+	width: 200px;
+	height: 285px;
+}
+
+.in{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom:10px;
+}
+
+.k{
+	vertical-align: middle;
+}
+
+.taprofile{
+	padding-top:5px;
+    padding-left:20px;
+	padding-right:20px;
+	padding-bottom: 5px;
+    background-color:white;
+	width: 33%;
+	margin-right: 20px;
+	margin-left: 20px;
+	float: left;
+}
+
+.taprofile img{
+	float: right;
+	width: 100px;
+	height: 100px;
+}
+
+.grade{
+	padding-top:5px;
+	padding-bottom: 5px;
+    background-color:white;
+	width: 30%;
+	float: left;
+	display: flex;
+	vertical-align: middle;
+}
+
+.grade img{
+	width: 34px;
+	height: 24px;
+	float: left;
+	padding-right: 10px;
+}
+
+td.holiday{
+	background-color: black;
+	color:red;
+}
+
+td.quiz{
+	font-size: 1.5em;
+	color:red;
+}

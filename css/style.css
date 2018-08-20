@@ -1,0 +1,138 @@
+body{
+    background-color:#A2C4C9;
+    font-family: Tahoma, Helvetica, Arial, "Microsoft Yahei", "微软雅黑", STXihei, "华文细黑", sans-serif;
+}
+
+header{
+    top:0;
+    width: 100%;
+}
+
+.himage{
+    background-image: url(../img/headimage.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    height: 200px;
+    border-color: black;
+    border-width: 2pt;
+    padding-left: 20px;
+}
+
+.himage h1{
+    padding-top: 130px;
+    color: #DD0002;
+    font-size: 32px;
+    font-weight: 700;
+	text-shadow: 4px 4px #000000;
+}
+
+navi{
+    display: flex;
+}
+
+.rnav{
+    margin-left:0px;
+    margin-right:0px;
+    justify-content:space-between;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.l{
+    width:10%;
+	background-color: gray;
+	color: white;
+}
+
+.l:hover {
+    background-color: #4CAF50;
+	font-weight: bold;
+}
+
+.r{
+    width:10%;
+    background-color: yellow;
+	color: black;
+}
+
+.r:hover{
+	background-color: red;
+	color: white;
+	font-weight: bold;
+}
+
+.cont{
+    width:100%;
+    margin-bottom:50px;
+}
+
+.toptitle{
+	text-align: center;
+	font-weight: bold;
+}
+
+.left{
+    width: 49%;
+    float:left;
+    border:black;
+    clear:both;
+}
+
+.right{
+    width: 49%;
+    float:left;
+    margin-left:2%;
+    border:black;
+    margin-bottom:40px;
+}
+
+.content{
+    padding-top:10px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:10px;
+    background-color:white;
+    margin-bottom:25px;
+}
+
+.content h2{
+    -webkit-margin-before: 0;
+}
+
+.content p{
+    -webkit-margin-before: 0;
+}
+
+.more{
+    text-align: right;
+    font-weight:1000;
+}
+
+footer{
+    width:100%;
+    background-color:orange;
+    padding-left:10px;
+	padding-right:10px;
+    position:fixed;
+    bottom:0;
+    padding-top:5px;
+}
+
+table{
+	border: 1px solid black;
+    width:100%;
+}
+
+th{
+    text-align:center;
+}
