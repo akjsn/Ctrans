@@ -131,8 +131,18 @@ footer{
 table{
 	border: 1px solid black;
     width:100%;
+    margin-bottom: 15px;
+}
+
+.tbl{
+    border: none;
 }
 
 th{
     text-align:center;
+}
+
+.code{
+    font-family: "Courier New";
+    font-size: 11pt;
 }

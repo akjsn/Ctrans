@@ -32,12 +32,10 @@
         </div>
     </header>
 
-    <!-- REMOVE BEFORE POSTING: THIS TEMPLATE IS FOR TASK DETAILS AND ANNOUNCEMENTS !! 
-    TASKS IN TASKS FOLDER, ANNOUNCEMENTS IN ANNOUNCEMENTS FOLDER !!
-    -->
-
     <div class="cont">
 		<div class="content">
+                <div class="back"><a onclick="goBack()">< BACK</a></div>
+
                 <h2>
                         Welcome
                     </h2>
@@ -82,5 +80,10 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 </html>

@@ -38,6 +38,7 @@
 
     <div class="cont">
 		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
                 title here
             </h2>
@@ -58,5 +59,10 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
 </body>
 </html>

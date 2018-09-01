@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+	<link href="../css/article.css" rel="stylesheet">
+</head>
+<body class="container-fluid">
+    <header>
+        <div href="index.html" class="himage"><h1>Computer Programming, Fall 2018</h1></div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-6 ">
+                <div class="row rnav">
+                    <a href="../index.html" class="col-12 col-md-5 col-lg-2 button l">Home</a>
+                    <a href="../about.html" class="col-12 col-md-5 col-lg-3 button l">About</a>
+                    <a href="../tasks.html" class="col-12 col-md-5 col-lg-3 button l">Tasks</a>
+                    <a href="../announcements.html" class="col-12 col-md-5 col-lg-3 button l">Announcements</a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6"> 
+                <div class="row rnav">
+                    <a href="../links.html" class="col-12 col-md-5 col-lg-3  button l">Links</a>
+                    <a href="../contact.html" class="col-12 col-md-5 col-lg-2  button l">Contact</a>
+                    <a href="../http://140.124.184.228:8080/Exam/Login" target="_blank" class="col-12 col-md-5 col-lg-3 button r">Login</a>
+                    <a href="../https://myweb.ntut.edu.tw/~jykuo/c1071.html" class="col-12 col-md-5 col-lg-3 button r">繁體中文網站</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Queue using Linked Lists
+            </h2>
+
+            <h6>
+                Spring 2018: Question 38 (use C language to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                Make a program to demonstrate the concept of a queue using linked lists.  
+            </p>
+            
+            <p>
+                Just like a stack, a queue also has two basic functions, but with different usage methods:<br>
+                push: inserts an item to the end (tail) of the queue<br>
+                pop: removes an item from the start of the queue
+            </p>
+
+            <p>
+                Input instruction: The following commands are used in this program:
+                <ol>
+                    <li>push: input a line of data which contains a person’s name, age, birthday (year, month, day, with each number separated by a space). Separate each piece of data with a space.</li>
+                    <li>pop: removes the data from the start of the queue.</li>
+                    <li>This command ends the program.</li>
+                </ol>                
+            </p>
+
+            <p>
+                    Output instructions:
+                    <ol>
+                        <li>When inputting the pop command, input another number, which commands the system to print the following from the data which is removed from the queue:<br>
+                            1: name<br>
+                            2: age<br>
+                            3: birthday (year, month, date). Separate each number with an underscore (_).</li>
+                        <li>If the queue is empty when the pop command is input, output “The stack is empty”. (Translator’s note: it’s supposed to be “The queue is empty...)</li>
+                    </ol>          
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        1 "Marry Hu" 19 1989 7 16 <br>
+                        1 "Tom Chen" 22 1996 10 19 <br>
+                        2 1 <br>
+                        1 "Billy Wu" 15 2005 3 18 <br>
+                        2 3 <br>
+                        2 2 <br>
+                        1 "Seafood" 24 1993 5 21 <br>
+                        2 3 <br>
+                        2 1 <br>
+                        3                            
+                    </td>
+                    <td>
+                        Marry Hu <br>
+                        1996_10_19 <br>
+                        15 <br>
+                        1993_5_21 <br>
+                        The Stack is empty <br>                           
+                    </td>
+                </tr>
+            </table>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+	<link href="../css/article.css" rel="stylesheet">
+</head>
+<body class="container-fluid">
+    <header>
+        <div href="index.html" class="himage"><h1>Computer Programming, Fall 2018</h1></div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-6 ">
+                <div class="row rnav">
+                    <a href="../index.html" class="col-12 col-md-5 col-lg-2 button l">Home</a>
+                    <a href="../about.html" class="col-12 col-md-5 col-lg-3 button l">About</a>
+                    <a href="../tasks.html" class="col-12 col-md-5 col-lg-3 button l">Tasks</a>
+                    <a href="../announcements.html" class="col-12 col-md-5 col-lg-3 button l">Announcements</a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6"> 
+                <div class="row rnav">
+                    <a href="../links.html" class="col-12 col-md-5 col-lg-3  button l">Links</a>
+                    <a href="../contact.html" class="col-12 col-md-5 col-lg-2  button l">Contact</a>
+                    <a href="../http://140.124.184.228:8080/Exam/Login" target="_blank" class="col-12 col-md-5 col-lg-3 button r">Login</a>
+                    <a href="../https://myweb.ntut.edu.tw/~jykuo/c1071.html" class="col-12 col-md-5 col-lg-3 button r">繁體中文網站</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Student Score Data using Linked Lists
+            </h2>
+
+            <h6>
+                Spring 2018: Question 39 (use C language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                Modify the following code and build a program to store the scores of a number of students.
+            </p>
+            
+            <table class="code">
+                <tr>
+                    <td>
+                        typedef struct { <br>
+                        &nbsp;&nbsp;&nbsp;int id; <br>
+                        &nbsp;&nbsp;&nbsp;int score;<br>
+                        } student_t; <br>
+                        <br>
+                        typedef struct node { <br>
+                            &nbsp;&nbsp;&nbsp;student_t data; <br>
+                            &nbsp;&nbsp;&nbsp;struct node *next; <br>
+                        } node_t; <br>
+                        <br>
+                        typedef node_t * nodep_t; <br>
+                        <br>
+                        void printList(nodep_t p)<br>
+                        {<br>
+                            &nbsp;&nbsp;&nbsp;//print list data<br>
+                        }<br>
+                        <br>
+                        void insertInOrder(nodep_t *p, student_t data)<br>
+                        {<br>
+                            &nbsp;&nbsp;&nbsp;//after the addition of new data, the list has to be sorted based on the scores in ascending order<br>
+                        }<br>
+                        <br>
+                        void deleteStudent(nodep_t *p, int id)<br>
+                        {<br>
+                            &nbsp;&nbsp;&nbsp;//removes the data of a student based on the given ID<br>
+                        }        
+                    </td>
+                </tr>                
+            </table>
+
+            <p>
+                Input instruction: The following commands are used in this program:
+                <ol>
+                    <li>p: prints the list content. (<span class="code">void printList(nodep_t p)</span>will be called)</li>
+                    <li>i: adds a new student data. On the next line, input the ID and score, separated with a comma (but without a space).   (<span class="code">void insertInOrder(nodep_t *p, student_t data)</span> will be called)</li>
+                    <li>d: deletes the data of a student. On the next line, input the ID of the student data to be removed. (<span class="code">void deleteStudent(nodep_t *p, int id)</span> will be called)</li>
+                    <li>e: ends the program.</li>
+                </ol>                
+            </p>
+
+            <p>
+                    Output instructions:
+                    <ol>
+                        <li>If the list is empty, output “null”.</li>
+                        <li>For every piece of data in the list, output the following in order:<br>
+                                ID, score.<br>
+                            Output the data in order of score, and separate everything in between with a comma (but without a space).</li>
+                        <li>If the score of multiple students are the same, output the student whose ID is smaller first.</li>
+                    </ol>          
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=15%>Sample Input</th>
+                    <th width=40%>Explanation</th>
+                    <th width=45%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                            p <br>
+                            i <br>
+                            1,2 <br>
+                            p <br>
+                            i <br>
+                            3,0 <br>
+                            p <br>
+                            i <br>
+                            2,99 <br>
+                            p <br>
+                            i <br>
+                            0,99 <br>
+                            p <br>
+                            i <br>
+                            7,99 <br>
+                            p <br>
+                            d <br>
+                            2 <br>
+                            p <br>
+                            e                                           
+                    </td>
+                    <td>
+                        output list data <br>
+                        input new student data <br>
+                        input ID and score <br>
+                        output list -– output should be 1,2  <br><br><br><br><br><br><br><br><br><br><br><br>
+                        deletes student data <br>
+                        deletes data of student whose ID is 2 <br>
+                        output list -– data of student with ID 2 should not be there <br>                           
+                    </td>
+                    <td>
+                        Marry Hu <br>
+                        1996_10_19 <br>
+                        15 <br>
+                        1993_5_21 <br>
+                        The Stack is empty                           
+                    </td>
+                </tr>
+            </table>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+</body>
+</html>
