@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/inst.css" rel="stylesheet">
+    <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              } 
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div> 
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <div class="toptitle">
+                <h2>
+                Submitting your tasks
+            </h2></div>
+
+            <p> <!-- content-->
+                <ol>
+                    <li>Log on to the homework portal here: <a href="../http://140.124.184.228:8080/Exam/Login">http://140.124.184.228:8080/Exam/Login</a></li>
+                    <li>Sign in using your student ID. Be sure to select C.<br>
+                        <img src="img/taskinstr/ins1.jpg" width=50% height=50%><br>
+                        If this is the first time you use the system, the initial password is 0.<br>
+                        <h4>REMEMBER TO CHANGE YOUR PASSWORD TO PREVENT OTHERS FROM MISUSING YOUR ACCOUNT! YOU ARE RESPONSIBLE FOR ALL DAMAGES CAUSED BY ANY MISUSE OF YOUR ACCOUNT.</h4>
+                    </li>
+                    <li>
+                        Once you successfully log in, you will see this welcome page.<br>
+                        <img src="img/taskinstr/ins2.jpg"><br>
+                        On the top, from left to right, you will see the following links in order: online test (線上考試), <b>view submitted homeworks (觀看已交作業)</b>, check grades, <b>submit homework (作業繳交)</b>, message board (留言板), change password (更改密碼), comment (評分), and log out (登出).
+                    </li>
+                    <li>
+                        Once you click on “submit homework” (作業繳交), you will see a list of tasks that are assigned to you. <br>
+                        <img src="img/taskinstr/ins3.jpg"><br>
+                        Each task has a 3-digit question code (題號); you can click on the code to view the question.<br>
+                        Each task has a set deadline (繳交期限), so be sure to complete your assigned tasks before the deadline (繳交期限) passes!<br>
+                        This homework system is computerized, so once the deadline for the task is reached, then the submission link (繳交) will be disabled and replaced with this text: “期限已過” (deadline has passed), and the system will not accept any more submissions.<br>
+                        You can find out if you have submitted your homework or not (備註), and you can also check whether or not your program is accepted (測試).
+                    </li>
+                    <li>
+                        If the submission link is open, you can click on the submission link to submit your assignment. You will find a screen as shown below: <br>
+                        <img src="img/taskinstr/ins4.jpg"><br>
+                        Click “Choose File” to select which file you would like to submit. <br>
+                        Your file name must contain only Roman numerals and Arabic numbers, and the files have to be less than 2 MB.<br>
+                        You can also add notes, just for your reference. Click “Upload” to upload your file.
+                    </li>
+                    <li>
+                        Once you have submitted your file, click on Check Results (查看結果) to see whether your program is accepted or not. <br>
+                        This screen will come out.<br>
+                        <img src="img/taskinstr/ins5.jpg"><br>
+                        The system will tell you whether or not your program is accepted after your program goes through a series of testing with predetermined test cases set up by Kuolao himself. <br>
+                        If your program passes the testing of one test case, “通過測試” (testing success) will show up, otherwise, “測試失敗” (testing failed) will show up instead. At the bottom, the acceptance rate of the program is shown.<br>
+                        From the above example, the program only passed 1 out of 3 testings, so the acceptance rate for that program is 33% (1/3 x 100% = 33%).<br>
+                        <img src="img/taskinstr/ins6.jpg"><br>
+                        You need to get the acceptance rate to 100% in order to clear the task.
+                    </li>
+                    <li>
+                        Clicking on “List of passers” (通過測試名單) will display a list of students who have successfully completed the task.<br> If your student ID is displayed here, then you have successfully completed the task!<br>
+                        <img src="img/taskinstr/ins7.jpg"><br>
+                    </li>
+                    <li>
+                        Clicking on “View Submitted Homeworks” (觀看已交作業) will view a list of tasks that you have submitted.<br>
+                        If you are not satisfied with your work or if you accidentally uploaded the wrong file, you can click on the delete (刪除) link to delete your submission – only if the link is open. If the deadline for the task has passed, the delete link is replaced by “處理中” (Processing...)<br>
+                        <img src="img/taskinstr/ins8.jpg"><br>
+                        If you would like to submit your homework again, you must delete your already submitted homework first.
+                    </li>
+                </ol>
+            </p>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+     <script>
+        includeHTML();
+    </script>
+</body>
+</html>

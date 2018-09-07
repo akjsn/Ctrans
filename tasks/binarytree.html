@@ -44,42 +44,41 @@
     <div class="cont">
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
-            <h2>  <!-- article title -->
-                Queue Using Linked Lists
+            <h2>  
+                Binary Tree
             </h2>
 
             <h6>
-                Spring 2018: Question 38 (use C language to make this program)
+                Spring 2018: Question 40 (use C language to make this program)
             </h6>
 
             <p> <!-- content-->
-                Make a program to demonstrate the concept of a queue using linked lists.  
+                Given an inorder traversal data and a preorder or postorder traversal data, make a program to produce a binary tree.              
             </p>
-            
-            <p>
-                Just like a stack, a queue also has two basic functions, but with different usage methods:<br>
-                push: inserts an item to the end (tail) of the queue<br>
-                pop: removes an item from the start of the queue
+
+            <p>In preorder traversal, we visit the nodes first, then visit the left tree, and finally visit the right tree.<br>
+                In inorder traversal, we visit the left tree first, then visit the nodes, and finally visit the right tree.<br>
+                In postorder traversal, we visit the left tree first, then visit the right tree, and finally visit the nodes.
+            </p>
+
+            <p>Suppose we have a tree as shown below:<br>
+                <img src="binarytree/example.jpg" class="diag"><br>
+                The preorder traversal for this tree is ABDECFG.<br>
+                The inorder traversal for this tree is DBEAFCG.<br>
+                The postorder traversal for this tree is DEBFGCA.<br>
             </p>
 
             <p>
-                Input instruction: The following commands are used in this program:
+                Input instructions:
                 <ol>
-                    <li>push: input a line of data which contains a person’s name, age, birthday (year, month, day, with each number separated by a space). Separate each piece of data with a space.</li>
-                    <li>pop: removes the data from the start of the queue.</li>
-                    <li>This command ends the program.</li>
+                    <li>Input four lines.</li>
+                    <li>For the first and third lines, input P for preorder traversal, I for inorder traversal, or O for postorder traversal.</li>
+                    <li>For the second and fourth lines, input the result of the traversal specified in the first or third lines.</li>
                 </ol>                
             </p>
 
             <p>
-                    Output instructions:
-                    <ol>
-                        <li>When inputting the pop command, input another number, which commands the system to print the following from the data which is removed from the queue:<br>
-                            1: name<br>
-                            2: age<br>
-                            3: birthday (year, month, date). Separate each number with an underscore (_).</li>
-                        <li>If the queue is empty when the pop command is input, output “The stack is empty”. (Translator’s note: it’s supposed to be “The queue is empty...)</li>
-                    </ol>          
+                Output instruction: Output the binary tree produced, from top to bottom, and from left to right.      
             </p>
 
             <table border=1px>
@@ -89,23 +88,13 @@
                 </tr>
                 <tr>
                     <td>
-                        1 "Marry Hu" 19 1989 7 16 <br>
-                        1 "Tom Chen" 22 1996 10 19 <br>
-                        2 1 <br>
-                        1 "Billy Wu" 15 2005 3 18 <br>
-                        2 3 <br>
-                        2 2 <br>
-                        1 "Seafood" 24 1993 5 21 <br>
-                        2 3 <br>
-                        2 1 <br>
-                        3                            
+                        P <br>
+                        ABCDEFGHI <br>
+                        I <br>
+                        BCAEDGHFI <br>                       
                     </td>
                     <td>
-                        Marry Hu <br>
-                        1996_10_19 <br>
-                        15 <br>
-                        1993_5_21 <br>
-                        The Stack is empty <br>                           
+                        ABDCEFGIH                          
                     </td>
                 </tr>
             </table>
@@ -125,6 +114,8 @@
             window.history.back();
         }
     </script>
-    <script>includeHTML();</script>
+    <script>
+            includeHTML();
+    </script>
 </body>
 </html>

@@ -8,29 +8,38 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 	<link href="css/about.css" rel="stylesheet">
+	<script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              } 
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        }
+    </script> 
 </head>
 <body class="container-fluid">
-	<header>
-		<div href="index.html" class="himage"><h1>Computer Programming, Fall 2018</h1></div>
-		<div class="row">
-			<div class="col-sm-12 col-lg-6">
-				<div class="row rnav">
-					<a href="index.html" class="col-12 col-md-5 col-lg-2 button l">Home</a>
-					<a href="about.html" class="col-12 col-md-5 col-lg-3 button l">About</a>
-					<a href="tasks.html" class="col-12 col-md-5 col-lg-3 button l">Tasks</a>
-					<a href="announcements.html" class="col-12 col-md-5 col-lg-3 button l">Announcements</a>
-				</div>
-			</div>
-			<div class="col-sm-12 col-lg-6"> 
-				<div class="row rnav">
-					<a href="links.html" class="col-12 col-md-5 col-lg-3  button l">Links</a>
-					<a href="contact.html" class="col-12 col-md-5 col-lg-2  button l">Contact</a>
-					<a href="http://140.124.184.228:8080/Exam/Login" target="_blank" class="col-12 col-md-5 col-lg-3 button r">Login</a>
-					<a href="https://myweb.ntut.edu.tw/~jykuo/c1071.html" class="col-12 col-md-5 col-lg-3 button r">繁體中文網站</a>
-				</div>
-			</div>
-		</div>
-	</header>
+	<div w3-include-html="head.html"></div> 
 	
     <div class="cont">
 		<div class="toptitle"><h1>About</h1></div>
@@ -242,6 +251,51 @@
 			* no class on January 7, 2019 due to the Second Onboard Examination on January 9, 2019
 		</div>
 
+		<div class="content">
+			<h2>What To Expect</h2>
+			
+			<p>Here are some things to expect during the semester...</p>
+
+			<h4>IDE (Integrated Development Environment)</h4>
+			<p>The IDE used for this course is <a href="http://www.codeblocks.org/" target="_blank">Code::Blocks.</a> Kuolao will use Code::Blocks to demonstrate code in class.</p>
+			<p>You can use any other IDE, as you see fit.</p>
+
+			<h4>Teaching Assistant Sessions</h4>
+			<p>
+				Typically, new assignments come out every Wednesday and is due the following Wednesday.
+			</p>
+			<p>
+				Every Wednesday evening at 18:30, you can come to the teahing assistant (TA) sessions. In these sessions, Kuolao’s TAs will explain you about the week’s assignments and assist you with any doubts. It is strongly encouraged for you to take part in the TA sessions, as the TAs will help get you one step closer to solving your weekly assignments.
+			</p>
+
+			<h4>Flipped Classroom Sessions</h4>
+			<p>
+				Kuolao will have several flipped classroom sessions. For this, you will need to use an app called <a href="http://www.edmodo.com" target="_blank">Edmodo</a> (available in <a href="https://itunes.apple.com/us/app/edmodo-classroom-tools/id378352300" target="_blank">Apple App Store</a>, <a href="https://play.google.com/store/apps/details?id=com.fusionprojects.edmodo" target="_blank">Google Play</a>, <a href="https://www.microsoft.com/en-us/p/edmodo/9wzdncrdsmjn?activetab=pivot%3aoverviewtab" target="_blank">Microsoft Store</a>, and also on the web).
+			</p>
+			<p>
+				In a flipped classroom session, you will first learn about the course material outside the classroom (through videos that are given by Kuolao on Edmodo), and then in the classroom, Kuolao will give you several problems, and you will be asked to solve it. You will be grouped with other classmates for the flipped classroom sessions, so that you can discuss with your teammates on how to solve the problem.
+			</p>
+
+			<h4>Onboard Examinations</h4>
+			<p>
+				During the midterm and final exam weeks, you will face Kuolao’s 3-hour onboard examinations. These exams will cover the topics you have learned over the first or second half of the semester.
+			</p>
+			<p>
+				You will have to use Code::Blocks to code some programs during the examination. The examination questions are typically taken from homework exercises, so it is essential to complete the homework assignments given by Kuolao.
+			</p>
+			<p>
+				Statistics show that many students fall out in this course because of this, so knowing how to solve the programs and the logic behind them are critical to surviving the onboard examinations.</p>
+				
+			<p class="warn">
+				<span class="chi">上機考試零分很危險喔 ! -郭老</span><br>
+				It is dangerous to get 0 marks in the onboard examinations! -Kuolao
+			</p>
+		</div>
+
+		<div class="content">
+			<h2>If you have any questions...</h2>
+			<p>You can also ask your classmates for advice on how to build the program (but don’t ask them to make the program for you!). Feel free to contact Kuolao or any of his TAs for help. They will be ready to help you whenever you need them.</p>
+		</div>
     </div>
     
     <footer>
@@ -249,6 +303,10 @@
 	</footer>
 	
 	<script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script>
+        includeHTML();
+	</script>
+	
 </body>
 </html>

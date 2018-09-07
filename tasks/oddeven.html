@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kuolao's Computer Programming Survival Guide</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/contact.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
     <script>
             function includeHTML() {
               var z, i, elmnt, file, xhttp;
@@ -39,23 +39,47 @@
     </script> 
 </head>
 <body class="container-fluid">
-    <div w3-include-html="head.html"></div> 
+    <div w3-include-html="head.html"></div>
 
     <div class="cont">
-        <div class="toptitle"><h1>Contact</h1></div>
-        <div class="content">
-            <h2>Instructor</h2>
-            <p>Dr. Jong-Yih Kuo (郭忠義 教授): <a href="mailto:jykuo@ntut.edu.tw">jykuo@ntut.edu.tw</a></p>
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Odd and Even Numbers
+            </h2>
 
-            <h2>Teaching Assistant</h2>
-            <p>TBA</p><!--<p>
-                Han-Lung Lin (林翰隆): <a href="mailto:gunchana0713@gmail.com">gunchana0713@gmail.com</a>
-            </p>-->
+            <h6>
+                Fall 2017: Question 4 (use C language to make this program)
+            </h6>
 
-            <h2>Webmaster</h2>
-            <p>
-                Jason King (陳福國): <a href="mailto:jason.king9@yahoo.com">jason.king9@yahoo.com</a>
+            <p> <!-- content-->
+                Input a number (<span class="code">int</span>), then display whether the number is odd or even.
             </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        3                         
+                    </td>
+                    <td>
+                        odd                                                    
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        6                         
+                    </td>
+                    <td>
+                        even                                                  
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
 		</div>
     </div>
     
@@ -65,6 +89,11 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <script>includeHTML();</script>
 </body>
 </html>

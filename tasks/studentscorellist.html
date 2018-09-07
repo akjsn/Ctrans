@@ -7,30 +7,39 @@
     <title>Kuolao's Computer Programming Survival Guide</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
-	<link href="../css/article.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
 </head>
 <body class="container-fluid">
-    <header>
-        <div href="index.html" class="himage"><h1>Computer Programming, Fall 2018</h1></div>
-        <div class="row">
-            <div class="col-sm-12 col-lg-6 ">
-                <div class="row rnav">
-                    <a href="../index.html" class="col-12 col-md-5 col-lg-2 button l">Home</a>
-                    <a href="../about.html" class="col-12 col-md-5 col-lg-3 button l">About</a>
-                    <a href="../tasks.html" class="col-12 col-md-5 col-lg-3 button l">Tasks</a>
-                    <a href="../announcements.html" class="col-12 col-md-5 col-lg-3 button l">Announcements</a>
-                </div>
-            </div>
-            <div class="col-sm-12 col-lg-6"> 
-                <div class="row rnav">
-                    <a href="../links.html" class="col-12 col-md-5 col-lg-3  button l">Links</a>
-                    <a href="../contact.html" class="col-12 col-md-5 col-lg-2  button l">Contact</a>
-                    <a href="../http://140.124.184.228:8080/Exam/Login" target="_blank" class="col-12 col-md-5 col-lg-3 button r">Login</a>
-                    <a href="../https://myweb.ntut.edu.tw/~jykuo/c1071.html" class="col-12 col-md-5 col-lg-3 button r">繁體中文網站</a>
-                </div>
-            </div>
-        </div>
-    </header>
+        <div w3-include-html="head.html"></div>
 
     <div class="cont">
 		<div class="content">
@@ -148,6 +157,8 @@
                     </td>
                 </tr>
             </table>
+
+            <h3>Good Luck!</h3>
 		</div>
     </div>
     
@@ -161,6 +172,7 @@
         function goBack() {
             window.history.back();
         }
-     </script>
+    </script>
+    <script>includeHTML();</script>
 </body>
 </html>

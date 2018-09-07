@@ -36,7 +36,7 @@
                 }
               }
             }
-    </script> 
+    </script>
 </head>
 <body class="container-fluid">
     <div w3-include-html="head.html"></div>
@@ -45,40 +45,31 @@
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Queue Using Linked Lists
+                Solving A Quadratic Equation
             </h2>
 
             <h6>
-                Spring 2018: Question 38 (use C language to make this program)
+                Fall 2017: Question 2 (use C language to make this program)
             </h6>
 
             <p> <!-- content-->
-                Make a program to demonstrate the concept of a queue using linked lists.  
+                Calculate the real roots of the quadratic equation Ax<sup>2</sup> + Bx + C = 0. 
             </p>
             
-            <p>
-                Just like a stack, a queue also has two basic functions, but with different usage methods:<br>
-                push: inserts an item to the end (tail) of the queue<br>
-                pop: removes an item from the start of the queue
-            </p>
+            <div class="note">
+                You have to use <span class="code">#include&lt;math.h&gt;</span> to write this program.
+            </div>
 
             <p>
-                Input instruction: The following commands are used in this program:
-                <ol>
-                    <li>push: input a line of data which contains a person’s name, age, birthday (year, month, day, with each number separated by a space). Separate each piece of data with a space.</li>
-                    <li>pop: removes the data from the start of the queue.</li>
-                    <li>This command ends the program.</li>
-                </ol>                
+                Input instruction: three numbers (all <span class="code">int</span>): A, B, and C          
             </p>
 
             <p>
                     Output instructions:
                     <ol>
-                        <li>When inputting the pop command, input another number, which commands the system to print the following from the data which is removed from the queue:<br>
-                            1: name<br>
-                            2: age<br>
-                            3: birthday (year, month, date). Separate each number with an underscore (_).</li>
-                        <li>If the queue is empty when the pop command is input, output “The stack is empty”. (Translator’s note: it’s supposed to be “The queue is empty...)</li>
+                        <li>First root (in <span class="code">double</span>): x1 = ((-b) + sqrt(b * b - 4 * a * c)) / (2 * a)<br>
+                            Second root (in <span class="code">double</span>):  x2 = ((-b) - sqrt(b * b - 4 * a * c)) / (2 * a)</li>
+                        <li>Display the roots in ONE decimal place, for example: <span class="code">printf("%.1f",x1);</span></li>
                     </ol>          
             </p>
 
@@ -89,23 +80,13 @@
                 </tr>
                 <tr>
                     <td>
-                        1 "Marry Hu" 19 1989 7 16 <br>
-                        1 "Tom Chen" 22 1996 10 19 <br>
-                        2 1 <br>
-                        1 "Billy Wu" 15 2005 3 18 <br>
-                        2 3 <br>
-                        2 2 <br>
-                        1 "Seafood" 24 1993 5 21 <br>
-                        2 3 <br>
-                        2 1 <br>
-                        3                            
+                        1 <br>
+                        -2 <br>
+                        1                            
                     </td>
                     <td>
-                        Marry Hu <br>
-                        1996_10_19 <br>
-                        15 <br>
-                        1993_5_21 <br>
-                        The Stack is empty <br>                           
+                        1.0<br>
+                        1.0                           
                     </td>
                 </tr>
             </table>
@@ -124,7 +105,7 @@
         function goBack() {
             window.history.back();
         }
-    </script>
-    <script>includeHTML();</script>
+     </script>
+     <script>includeHTML();</script>
 </body>
 </html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Stacks and Queues using Doubly Linked Lists
+            </h2>
+
+            <h6>
+                Spring 2018: Question 41 (use C language to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                Use doubly linked lists to demonstrate stacks and queues, and design a program to demonstrate <b>dLink</b>.
+                <img src="headers/stackqueuedllist.jpg" class="head">
+            </p>
+
+            <p>
+                The node structure for the double linked list is as follows:
+                <table border=1px>
+                    <tr>
+                        <td class="code">
+                            typedef struct dnode_s { <br>
+                            &nbsp;&nbsp;&nbsp;char name[10]; <br>
+                            &nbsp;&nbsp;&nbsp;int age; <br>
+                            &nbsp;&nbsp;&nbsp;int year; <br>
+                            &nbsp;&nbsp;&nbsp;int month; <br>
+                            &nbsp;&nbsp;&nbsp;int day; <br>
+                            &nbsp;&nbsp;&nbsp;struct dnode* front; <br>
+                            &nbsp;&nbsp;&nbsp;struct dnode* next; <br>
+                            } dnode_t; <br>
+                            <br>
+                            typedef dnode_t *nodep_t;                                
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            
+            <p>
+                A stack has two basic functions:<br>
+                push: inserts an item to the top of the stack<br>
+                pop: removes an item from the top of the stack
+            </p>
+
+            <p>
+                A queue also has two basic functions:<br>
+                push: inserts an item to the end (tail) of the queue<br>
+                pop: removes an item from the start of the queue
+            </p>
+
+            <p>
+                dLink: in this mode, you can add or remove data to/from the list, and you will have to make a function to print out all the names in the list.
+            </p>
+
+            <p>
+                Input instruction:
+                <ol>
+                    <li>First, input 1 for stack, 2 for queue, and 3 for dLink.</li>
+                    <li>The following commands are used in stack:
+                        <ul>
+                            <li>1: push -- input a line of data which contains a person’s name, age, birthday (year, month, day, with each number separated by a space). Separate each piece of data with a space.</li>
+                            <li>2: pop -- removes the topmost data from the stack. </li>
+                            <li>3: This command ends the program.</li>
+                        </ul>
+                    </li>
+                    <li>The following commands are used in queue:
+                        <ul>
+                            <li>1: push -- enqueue: input a line of data which contains a person’s name, age, birthday (year, month, day, with each number separated by a space). Separate each piece of data with a space.</li>
+                            <li>2: pop -- removes the data from the start of the queue. </li>
+                            <li>3: This command ends the program.</li>
+                        </ul>
+                    </li>
+                    <li>The following commands are used in dLink:
+                        <ul>
+                            <li>1: This command adds new data. Input a line of data which contains a person’s name, age, birthday (year, month, day, with each number separated by a space), and another name (input two names in total). The new data will be appended after the data which contains the second name mentioned in the input.</li>
+                            <li>2: This command removes data. Input a name, and the data containing that person’s name will be removed from the list. </li>
+                            <li>3.	This command prints all the names in the list.</li>
+                            <li>4: This command ends the program.</li>
+                        </ul>
+                    </li>
+                </ol>                
+            </p>
+
+            <p>
+                    Output instructions:
+                    <ol>
+                        <li>1.	When inputting the pop command in queue, or the dequeue command in queue, input another number, which commands the system to print the following from the data which is removed from the queue:<br>
+                            1: name<br>
+                            2: age<br>
+                            3: birthday (year, month, date). Separate each number with an underscore (_).</li>
+                        <li>If the stack is empty when the pop command (in stack) is input, output “The Stack is empty”.<br>
+                            If the queue is empty when the dequeue command (in queue) is input, output “The Queue is empty”. </li>
+                        <li>In dLink, after inputting the name list command, output “list name output:”, followed by the names in the list on a new line.</li>
+                        <li>4.	In dLink, output “name not found” if any of the following occur:
+                            <ul>
+                                <li>when adding new data in dLink, none of the names in the data match the second name mentioned in the input (unless if the list is empty)</li>
+                                <li>when deleting data in dLink, none of the names in the data match the name mentioned in the input.</li>
+                            </ul>
+                        </li>
+                    </ol>          
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        1 <br>
+                        1 "Marry Hu" 19 1989 7 16 <br>
+                        1 "Tom Chen" 22 1996 10 19 <br>
+                        2 1 <br>
+                        1 "Billy Wu" 15 2005 3 18 <br>
+                        2 3 <br>
+                        2 2 <br>
+                        1 "Lucas Su" 24 1993 5 21 <br>
+                        2 3 <br>
+                        2 1 <br>
+                        3                                                       
+                    </td>
+                    <td>
+                        Tom Chen <br>
+                        2005_3_18 <br>
+                        19 <br>
+                        1993_5_21 <br>
+                        The Stack is empty                                                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        1 <br>
+                        1 "Marry Hu" 19 1989 7 16 <br>
+                        1 "Tom Chen" 22 1996 10 19 <br>
+                        2 1 <br>
+                        1 "Billy Wu" 15 2005 3 18 <br>
+                        2 3 <br>
+                        2 2 <br>
+                        1 "Lucas Su" 24 1993 5 21 <br>
+                        2 3 <br>
+                        2 1 <br>
+                        3                                                       
+                    </td>
+                    <td>
+                        Marry Hu  <br>
+                        1996_10_19  <br>
+                        15  <br>
+                        1993_5_21  <br>
+                        The Queue is empty                                                                                   
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        3 <br>
+                        1 "Marry Hu" 19 1989 7 16 "Lucas Su" <br>
+                        1 "Tom Chen" 22 1996 10 19 “Marry Hu” <br>
+                        1 "Billy Wu" 15 2005 3 18 "Marry Hu" <br>
+                        3 <br>
+                        2 "Tom Chen" <br>
+                        3 <br>
+                        4
+                    </td>
+                    <td>
+                        list name output: <br>
+                        Marry Hu <br>
+                        Billy Wu <br>
+                        Tom Chen <br>
+                        list name output: <br>
+                        Marry Hu <br>
+                        Billy Wu
+                    </td>
+                </tr>
+            </table>
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
