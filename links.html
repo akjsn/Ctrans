@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              } 
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div> 
+
+    <div class="cont">
+        <div class="toptitle"><h1>Links</h1></div>
+        <div class="content">
+            <h3>Here are some external websites and tools you can find useful.</h3>
+        </div>
+
+        <div class="content">
+            <h4>Course Tools</h4>
+            <a href="http://www.codeblocks.org/" target="_blank" class="button linkitem">
+                <h4>Code::Blocks</h4>
+                <img src="img/links/codeblocks.JPG">
+                <p>The open-source IDE you will be using to write your C language programs.</p>
+            </a>
+            <a href="http://www.python.org/" target="_blank" class="button linkitem">
+                <h4>Python</h4>
+                <img src="img/links/python.JPG">
+                <p>Kuolao has started to include Python in the course. It's no harm if you want to learn Python...</p>
+            </a>
+            <a href="http://www.edmodo.com/" target="_blank" class="button linkitem">
+                <h4>Edmodo</h4>
+                <img src="img/links/edmodo.JPG">
+                <p>This app is used during Flipped Classroom sessions. Kuolao will put Flipped Classroom stuff there.</p>
+            </a>
+            <a href="https://notepad-plus-plus.org/" target="_blank" class="button linkitem">
+                <h4>Notepad++</h4>
+                <img src="img/links/notepadpp.JPG">
+                <p>Just your typical Notepad application. But mightier and you can use it to write code!</p>
+            </a>
+        </div>
+
+        <div class="content">
+            <h4>Sharpen Your Skills</h4>
+            <a href="https://uva.onlinejudge.org/" target="_blank" class="button linkitem">
+                <h4>UVa Online Judge</h4>
+                <img src="img/links/uva.jpg">
+                <p>Online judge system with lots of programming problems, solvable using a variety of languages.</p>
+            </a>
+            <a href="https://zerojudge.tw/" target="_blank" class="button linkitem">
+                <h4>Zero Judge</h4>
+                <img src="img/links/zerojudge.jpg">
+                <p>As the website says, it is an online judge system for beginners. (website in Chinese)</p>
+            </a>
+        </div>
+
+        <div class="content">
+            <h4>Even More Resources</h4>
+            <a href="https://uva.onlinejudge.org/" target="_blank" class="button linkitem">
+                <h4>KC Online Judge Bot</h4>
+                <img src="img/links/noimage.png">
+                <p>Also known as kCOJ Bot.<br> Kuolao's Online Judge system in Telegram. Proudly made by PinLin.</p>
+            </a>
+            <a href="https://www.facebook.com/NPC.OwO/" target="_blank" class="button linkitem">
+                <h4>Programming Club</h4>
+                <img src="img/links/noimage.png">
+                <p>We also have a programming club in NTUT! If coding is your passion, this club suits you.</p>
+            </a>
+        </div>
+        
+        <div class="content">
+            <h4>Test Your Skills</h4>
+            <a href="https://cpe.cse.nsysu.edu.tw/" target="_blank" class="button linkitem">
+                <h5>Collegiate Programming Examination (CPE)</h5>
+                <img src="img/links/cpe.jpg">
+                <p>This is a programming examination held four times a year in many universities across Taiwan. (website in Chinese)</p>
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        includeHTML();
+    </script>
+</body>
+</html>

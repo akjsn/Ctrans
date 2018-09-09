@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Shape Structure II
+            </h2>
+
+            <h6>
+                Spring 2018: Question 32 (use C language to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                Based on the following code, write a program to calculate the perimeter of various shapes, and find the total perimeter of all the shapes.
+                <table border=1px>
+                    <tr>
+                        <td class="code">
+                                #include &lt;stdio.h&gt;<br>
+                                #include &lt;string.h&gt;<br>
+                                <br>
+                                #define ShapeText(TYPE) <br>
+                                &nbsp;&nbsp;&nbsp;char name[10];<br>
+                                &nbsp;&nbsp;&nbsp;float (*perimeter)(struct TYPE*);<br>
+                                <br>
+                                typedef struct _Shape { <br>
+                                &nbsp;&nbsp;&nbsp;ShapeText(_Shape);<br>
+                                } Shape;<br>
+                                <br>
+                                typedef struct _Circle {<br>
+                                &nbsp;&nbsp;&nbsp;ShapeText(_Circle);<br>
+                                &nbsp;&nbsp;&nbsp;float radius;<br>
+                                } Circle;<br>
+                                <br>
+                                float ShapeArea(Shape *obj) { return 0; }<br>
+                                float ShapePerimeter(Shape *obj) { return 0; }<br>
+                                <br>
+                                void ShapeNew(Shape *obj) {<br>
+                                &nbsp;&nbsp;&nbsp;strcpy(obj->name,"shape");<br>
+                                &nbsp;&nbsp;&nbsp;obj->perimeter = ShapePerimeter;<br>
+                                }<br>
+                                <br>
+                                float CircleArea(Circle *obj) { return 3.14 * obj->radius * obj->radius; }<br>
+                                float CirclePerimeter(Circle *obj) { return 2*3.14 * obj->radius; }<br>
+                                <br>
+                                void CircleNew(Circle *obj) {<br>
+                                &nbsp;&nbsp;&nbsp;strcpy(obj->name,"circle");<br>
+                                &nbsp;&nbsp;&nbsp;obj->perimeter = CirclePerimeter;<br>
+                                }<br>
+                                <br>
+                                int main() {<br>
+                                &nbsp;&nbsp;&nbsp;int i;<br>
+                                &nbsp;&nbsp;&nbsp;Shape s;<br>
+                                &nbsp;&nbsp;&nbsp;Circle c;<br>
+                                &nbsp;&nbsp;&nbsp;ShapeNew(&s);<br>
+                                &nbsp;&nbsp;&nbsp;CircleNew(&c);<br>
+                                &nbsp;&nbsp;&nbsp; c.radius=3.0;<br>
+                                &nbsp;&nbsp;&nbsp;Shape *list[] = { &s, (Shape*) &c};<br>
+                                &nbsp;&nbsp;&nbsp; for (i=0; i<2; i++) {<br></2>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shape *o = list[i];<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%s.perimeter()=%G\n", o->name, o->perimeter(o));<br>
+                                &nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;system("PAUSE");<br>
+                                }                                                                      
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td class="note"><b><span style="color:red">WARNING: YOU MUST REMOVE <span class="code" style="color:black">system("PAUSE");</span> FROM THE SAMPLE CODE WHEN WRITING YOUR PROGRAM, OTHERWISE YOUR PROGRAM WILL NOT BE ACCEPTED.</span></b></td>
+                    </tr>
+                </table>
+            </p>
+            
+            <p>
+                In this exercise, you must use <span class="code">struct</span> to define the classes Circle, Rectangle, Square, and Triangle.  
+            </p>
+
+            <p>
+                The member variables of the above classes are as follows: 
+                <ul>
+                    <li>Circle: radius</li>
+                    <li>Rectangle: width, height</li>
+                    <li>Square: side</li>
+                    <li>Triangle: three sides -- a, b, c</li>
+                </ul>
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>First, input the number of shapes N.</li>
+                    <li>Next, for every line from line 2 to line N+1, input the shape, and the sizes of all the required elements of that shape, all in one line, and separated with a space.<br>
+                        Input format is one of the following:
+                        <ul>
+                            <li>Circle: C radius (input 1 number)</li>
+                            <li>Rectangle: R width height (input 2 numbers)</li>
+                            <li>Square: S side (input 1 number)</li>
+                            <li>Triangle: T a b c (input 3 numbers)</li>
+                        </ul>
+                    </li>
+                </ol>                
+            </p>
+
+            <p>
+                    Output instructions:
+                    <ol>
+                        <li>From line 1 to line N, output the perimeter of every shape.<br>
+                            For the output of Circle, take π = 4.</li>
+                        <li>Lastly, output the total perimeter of all shapes.</li>
+                        <li>If the input is invalid, output “Error!”.</li>
+                    </ol>          
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        5 <br>
+                        T 3 4 5 <br>
+                        S 1 <br>
+                        R 2 3 <br>
+                        C 0 <br>
+                        C 1 <br>
+                        T 3 4 6                                                  
+                    </td>
+                    <td>
+                        Error!<br>
+                        12 <br>
+                        4 <br>
+                        10 <br>
+                        8 <br>
+                        13 <br>
+                        47                                                     
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>

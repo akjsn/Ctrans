@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Student Record Query
+            </h2>
+
+            <h6>
+                Spring 2018: Question 35 (use C language to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                Given a student record containing a number of student data, make a program to search and display the student data.
+            </p>
+            
+            <p>
+                First, input the student data, then input a command to perform different operations on the student record.
+            </p>
+
+            <p>
+                Different input formats are used for different commands.
+            </p>
+
+            <p>
+                A student data consists of name, ID, and gender.
+                For gender, M represents male, and F represents female.  
+            </p>
+
+            <p>
+                The commands used in this program are:
+                <ul>
+                    <li>f: search for student data in the student record. Input the ID after inputting the command. </li>
+                    <li>l: output all the student data\</li>
+                    <li>i: inserts a new student data into the student record. Input the name, ID, and gender after inputting the command.</li>
+                    <li>d: deletes a student data from the student record. Input the ID after inputting the command.</li>
+                    <li>m: modifies a student data in the record. Input the ID, followed by the new data (name, ID, gender) after inputting the command.</li>
+                    <li>q: exits the program.</li>
+                </ul>        
+            </p>
+
+            <p>
+                Input instruction: The following commands are used in this program:
+                <ol>
+                    <li>First, input the number of student data N (1 <= N <= 10).</li>
+                    <li>Next, input N lines of student data, with each line containing the student’s name, ID, and gender. Separate each piece of information with a space.</li>
+                    <li>Input a command, followed by the extra information if neccessary. See the command list above for more details. If extra information has to be input, separate each piece of information (including the command) with a space.</li>
+                </ol>                 
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>For the commands f and l, output the name, ID, and gender in the student data, separated with a space.</li>
+                    <li>For any invalid input, output “error".</li>
+                </ol>          
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        2 <br>
+                        Lucas 001 M <br>
+                        Kuo 002 M <br>
+                        i Lin 003 F <br>
+                        <span style="color:blue">l</span> <br>
+                        q                         
+                    </td>
+                    <td style="color:blue">
+                        Lucas 001 M <br> 
+                        Kuo 002 M <br> 
+                        Lin 003 F                          
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                An RPG Game
+            </h2>
+
+            <h6>
+                Spring 2018: Question 31 (use C language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                <img src="headers/rpg.jpg" class="head">
+                Johann wants to make an RPG game. The RPG game consists of a fighter, weapons and monsters in a 100 x 100 battlefield.
+            </p>
+
+            <ul>
+                <li>A fighter has the following stats: HP, attack power, weapons, and position. <br>
+                    The fighter has to attack monsters. The fighter can change weapons during the game.</li>
+                <li>A weapon has the following stats: name and attack range.</li>
+                <li>A monster has the following stats: ID, HP, attack power, and position.</li>
+            </ul>
+
+            <p>Before the game can start, the player must build the game setting. After the game has started, the player CANNOT add any more fighters, monsters, or weapons.</p>
+
+            <p>On a fighter’s turn, a fighter can do any of the following actions:
+                <ul>
+                    <li>attack (a)</li>
+                    <li>move (m)</li>
+                    <li>equip (equip)</li>
+                </ul>
+                A fighter can also look at the character data (d) without losing his turn.
+            </p>
+
+            <p>
+                 Once it is the monsters’ turn, if a fighter is within the attack range of a monster, the monster will attack.
+            </p>
+
+           <p>
+               Game rules:
+               <ol>
+                   <li>Damage inflicted to the opponent is as follows:
+                        <table border=1px>
+                            <tr>
+                                <th>Attack Power</th>
+                                <th>Damage</th>
+                            </tr>
+                            <tr>
+                                <td>0-10</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>11-50</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>51 and above</td>
+                                <td>20</td>
+                            </tr>
+                        </table>
+                    </li>
+                   <li>A fighter gains 5 strength for every monster killed.</li>
+                   <li>At the start of the game, the fighter starts with the fist as his weapon, with an attack range of 1. A monster’s attack range is 2.</li>
+                   <li>The fighter, on his turn, can choose to attack, move, or change weapon. The fighter can only move a maximum of 5 spaces in one axis (left-right, up-down), and there must not be any obstacle on the destination space. Once the fighter’s turn ends, the monsters will attack.</li>
+                   <li>Monsters can attack a fighter if the fighter is within the monster’s attack range; but monsters cannot move.</li>
+                   <li>There can only be ONE fighter; but there can be MANY monsters.</li>
+                   <li>The size of the battlefield is 100 x 100.</li>
+                   <li>When building the game setting, commands used are as follows:
+                       <ul>
+                           <li>is: create fighter</li>
+                           <li>im: create monster</li>
+                           <li>iw: create weapon</li>
+                           <li>start: start game</li>
+                       </ul>
+                   </li>
+                   <li>During the game, commands used are as follows:
+                        <ul>
+                            <li>a [monster ID]: attack monster [monster ID]</li>
+                            <li>m [position]: move to [position]</li>
+                            <li>equip [weapon name]: equips weapon [weapon name]</li>
+                            <li>d: shows the fighter’s stats, then (in order of ID) the monsters’ stats.</li>
+                        </ul>
+                   </li>
+                   <li>If there is no fighter or monster, then the game ends. Output the winner and the stats (redo the function of d in rule 9)</li>
+                   <li>Output “Error!” for any invalid input. If the input is invalid during a turn, the turn will not end until a valid input is given.</li>
+                   <li>A fighter or monster dies when the HP falls to 0 or lower.</li>
+                   <li>At the start of the game, ID, HP, attack power, and attack range are all above 0.</li>
+               </ol>
+           </p>
+
+            <p>
+                Input instruction: Input format is as follows:
+                <ol>
+                    <li>When creating game setting:
+                        <ul>
+                            <li>create fighter (is): is [HP] [attack power] [position-row] [position-column]</li>
+                            <li>create weapon (iw): iw [weapon name] [attack power]</li>
+                            <li>create monster (im): im [ID] [attack power] [position-row] [position-column]</li>
+                        </ul>
+                    </li>
+                    <li>In-game:
+                        <ul>
+                            <li>attack (a): a [monster ID]</li>
+                            <li>move (m): m [position-row] [position-column]</li>
+                            <li>equip: equip [weapon name]</li>
+                            <li>view character data (d): d</li>
+                        </ul>
+                    </li>
+                </ol>                
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=15%>Sample Input</th>
+                    <th width=40%>Expected Output</th>
+                    <th width=45%>Explanation</th>
+                </tr>
+                <tr>
+                    <td>
+                        is 100 10 1 5 <br>
+                        iw sword 2 <br>
+                        im 0700 10 15 10 <br> 
+                        im 0006 10 8 4 3 <br>
+                        d<br>
+                        im 8571 20 10 10 5 <br>
+                        iw bow 10 <br>
+                        im 0006 8 7 6 5<br>
+                        start<br>
+                        im 0007 10 8 4 3<br>
+                        equip bow <br>
+                        d <br>
+                        a 0006 <br>
+                        equip sword <br>
+                        a 0006 <br>
+                        m 10 5 <br>
+                        m 4 3 <br>
+                        m 4 4 <br>
+                        a 0700 <br>
+                        d <br>
+                        a 0006 <br>
+                        m 8 4 <br>
+                        a 8571 <br>
+                        m 9 4 <br>
+                        a 8571 <br>
+                        m 10 6<br>
+                        a 0700 <br>
+                        d <br>
+                        a 0000 <br>
+                        a 0700 <br>
+                        a 8571                                          
+                    </td>
+                    <td>
+                        soldier hp:100 fp:10 weapon:none location:1,5 <br>
+                        monster id:0006 hp:10 fp:8 location:4,3 <br>
+                        monster id:0700 hp:10 fp:15 location:10,7 <br>
+                        <span style="color:red">Error!</span><br>
+                        <span style="color:orange">Error!</span><br>
+                        soldier hp:100 fp:10 weapon:bow location:1,5 <br>
+                        monster id:0006 hp:10 fp:8 location:4,3 <br>
+                        monster id:0700 hp:10 fp:15 location:10,7 <br>
+                        monster id:8571 hp:20 fp:10 location:10,5 <br>
+                        <span style="color:gold">Error!</span>  <br>
+                        <span style="color:green">Error!</span> <br>
+                        <span style="color:blue">Error!</span><br>
+                        <span style="color:gold">Error!</span><br>
+                        soldier hp:95 fp:10 weapon:sword location:4,4 <br>
+                        monster id:0006 hp:5 fp:8 location:4,3 <br>
+                        monster id:0700 hp:10 fp:15 location:10,7 <br>
+                        monster id:8571 hp:20 fp:10 location:10,5 <br>
+                        <span style="color:gold">Error!</span><br>
+                        soldier hp:65 fp:20 weapon:bow location:10,6 <br>
+                        monster id:8571 hp:10 fp:10 location:10,5 <br>
+                        <span style="color:indigo">Error!</span> <br>
+                        <span style="color:purple">Error!</span><br>
+                        soldier win! <br>
+                        soldier hp:65 fp:25 weapon:bow location:10,6                           
+                    </td>
+                    <td>
+                        <br><br><br>
+                        <span style="color:red">ID repeated</span><br>
+                        <span style="color:orange">no more objects can be added after the game has started</span><br><br><br><br><br>
+                        <span style="color:gold">distance between fighter and monster too far</span><br>
+                        <span style="color:green">distance to input destination is too far</span><br>
+                        <span style="color:blue">there are obstacles on the destination space</span><br>
+                        <span style="color:gold">distance between fighter and monster too far</span><br><br><br><br><br>
+                        <span style="color:gold">distance between fighter and monster too far</span><br><br><br>
+                        <span style="color:indigo">monster with the input ID does not exist</span><br>
+                        <span style="color:purple">monster with the input ID has died    </span>                     
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>

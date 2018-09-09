@@ -39,47 +39,70 @@
     </script> 
 </head>
 <body class="container-fluid">
-    <div w3-include-html="head.html"></div>
+        <div w3-include-html="head.html"></div>
 
     <div class="cont">
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Body Mass Index (BMI)
+                More Polynomials Using Linked Lists
             </h2>
 
             <h6>
-                Fall 2017: Question 5 (use C language to make this program)
+                Spring 2018: Question 36 (use C language to write this program)
             </h6>
 
             <p> <!-- content-->
-                <img src="headers/bmi.jpg" class="head">
-                Input a person’s height (in meters) and weight (in kg) (both <span class="code">double</span>), and then display the BMI of that person.
+                Using a linked list, input a polynomial, and then input the number of addition or subtraction operations to be done as well as the amount to be added/subtracted.
             </p>
             
-            <table>
-                <tr>
-					<td class="note">BMI = weight / (height * height)</td>
-				</tr>
-            </table>
+            <p>
+                Input instructions:
+                <ol>
+                    <li>First, input <i>n</i> numbers, which represent coefficients, with the first number representing a variable (x) raised to the power of <i>n</i>-1, the second number representing x raised to the power of <i>n</i>-2, and so on until the last number, which is simply x raised to the power of 0.</li>
+                    <li>Next, input a second number <i>p</i>. This number represents the number of addition or subtraction operations.</li>
+                    <li>From the third line onward, input <i>p</i> lines of data, with each line representing an addition or subtraction operation. Input the power, followed by the coefficient.</li>
+                </ol>               
+            </p>
 
             <p>
-                    Output instruction: Display the BMI in <span class="code">double</span> form, and in ONE decimal place. For example: <span class="code">printf("%.1f",x1);</span></li>
-                    </ol>          
+                Output instructions:
+                <ol>
+                    <li>Output the resulting polynomial after the operations.</li>
+                    <li>If the resulting variable has a coefficient of 0, the variable cannot be displayed.</li>
+                    <li>If the resulting polynomial is 0, output 0.</li>
+                </ol>          
             </p>
 
             <table border=1px>
                 <tr>
-                    <th width=50%>Sample Input</th>
-                    <th width=50%>Expected Output</th>
+                    <th width=15%>Sample Input</th>
+                    <th width=40%>Explanation</th>
+                    <th width=40%>Expected Output</th>
                 </tr>
                 <tr>
                     <td>
-                        1.72 <br>
-                        60                           
+                        2 3 0 1 -1 <br>
+                        6 <br>
+                        4 -1 <br>
+                        2 2 <br>
+                        3 -4 <br>
+                        0 1 <br>
+                        8 -4 <br>
+                        5 2                                        
                     </td>
                     <td>
-                        BMI: 20.3                                                      
+                        start with 2x4 + 3x3 + x – 1<br>
+                        6 addition/subtraction operations<br>
+                        subtract x<sup>4</sup><br>
+                        add 2x<sup>2</sup><br>
+                        subtract 4x<sup>3</sup><br>
+                        add 1<br>
+                        subtract 4x<sup>8</sup><br>
+                        add 2x<sup>5</sup>                         
+                    </td>
+                    <td>
+                        -4x^8+2x^5+x^4-x^3+2x^2+x                         
                     </td>
                 </tr>
             </table>
@@ -98,7 +121,7 @@
         function goBack() {
             window.history.back();
         }
-     </script>
-     <script>includeHTML();</script>
+    </script>
+    <script>includeHTML();</script>
 </body>
 </html>

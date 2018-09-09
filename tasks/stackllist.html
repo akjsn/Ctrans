@@ -45,26 +45,40 @@
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Body Mass Index (BMI)
+                Stack Using Linked Lists
             </h2>
 
             <h6>
-                Fall 2017: Question 5 (use C language to make this program)
+                Spring 2018: Question 38 (use C language to make this program)
             </h6>
 
             <p> <!-- content-->
-                <img src="headers/bmi.jpg" class="head">
-                Input a person’s height (in meters) and weight (in kg) (both <span class="code">double</span>), and then display the BMI of that person.
+                Make a program to demonstrate the concept of a stack using linked lists.  
             </p>
             
-            <table>
-                <tr>
-					<td class="note">BMI = weight / (height * height)</td>
-				</tr>
-            </table>
+            <p>
+                A stack has two basic functions, but with different usage methods:<br>
+                push: inserts an item to the top of the stack<br>
+                pop: removes an item from the top of the stack
+            </p>
 
             <p>
-                    Output instruction: Display the BMI in <span class="code">double</span> form, and in ONE decimal place. For example: <span class="code">printf("%.1f",x1);</span></li>
+                Input instruction: The following commands are used in this program:
+                <ol>
+                    <li>push: input a line of data which contains a person’s name, age, birthday (year, month, day, with each number separated by a space). Separate each piece of data with a space.</li>
+                    <li>pop: removes the data from the stack.</li>
+                    <li>This command ends the program.</li>
+                </ol>                
+            </p>
+
+            <p>
+                    Output instructions:
+                    <ol>
+                        <li>When inputting the pop command, input another number, which commands the system to print the following from the data which is removed from the stack:<br>
+                            1: name<br>
+                            2: age<br>
+                            3: birthday (year, month, date). Separate each number with an underscore (_).</li>
+                        <li>If the stack is empty when the pop command is input, output “The stack is empty”.</li>
                     </ol>          
             </p>
 
@@ -75,11 +89,23 @@
                 </tr>
                 <tr>
                     <td>
-                        1.72 <br>
-                        60                           
+                        1 "Marry Hu" 19 1989 7 16 <br>
+                        1 "Tom Chen" 22 1996 10 19 <br>
+                        2 1 <br>
+                        1 "Billy Wu" 15 2005 3 18 <br>
+                        2 3 <br>
+                        2 2 <br>
+                        1 "Lucas Su" 24 1993 5 21 <br>
+                        2 3 <br>
+                        2 1 <br>
+                        3                            
                     </td>
                     <td>
-                        BMI: 20.3                                                      
+                        Tom Chen <br>
+                        2005_3_18 <br>
+                        19 <br>                              
+                        1993_5_21 <br>
+                        The Stack is empty                          
                     </td>
                 </tr>
             </table>
@@ -98,7 +124,7 @@
         function goBack() {
             window.history.back();
         }
-     </script>
-     <script>includeHTML();</script>
+    </script>
+    <script>includeHTML();</script>
 </body>
 </html>

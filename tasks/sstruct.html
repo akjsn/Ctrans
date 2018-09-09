@@ -45,26 +45,53 @@
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Body Mass Index (BMI)
+                Shape Structure
             </h2>
 
             <h6>
-                Fall 2017: Question 5 (use C language to make this program)
+                Spring 2018: Question 30 (use C language to make this program)
             </h6>
 
             <p> <!-- content-->
-                <img src="headers/bmi.jpg" class="head">
-                Input a person’s height (in meters) and weight (in kg) (both <span class="code">double</span>), and then display the BMI of that person.
+                Write a program to calculate the perimeter of various shapes, and find the total perimeter of all the shapes.
             </p>
             
-            <table>
-                <tr>
-					<td class="note">BMI = weight / (height * height)</td>
-				</tr>
-            </table>
+            <p>
+                In this exercise, you must use <span class="code">struct</span> to define the classes Circle, Rectangle, Square, and Triangle.  
+            </p>
 
             <p>
-                    Output instruction: Display the BMI in <span class="code">double</span> form, and in ONE decimal place. For example: <span class="code">printf("%.1f",x1);</span></li>
+                The member variables of the above classes are as follows: 
+                <ul>
+                    <li>Circle: radius</li>
+                    <li>Rectangle: width, height</li>
+                    <li>Square: side</li>
+                    <li>Triangle: three sides -- a, b, c</li>
+                </ul>
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>First, input the number of shapes N.</li>
+                    <li>Next, for every line from line 2 to line N+1, input the shape, and the sizes of all the required elements of that shape, all in one line, and separated with a space.<br>
+                        Input format is one of the following:
+                        <ul>
+                            <li>Circle: C radius (input 1 number)</li>
+                            <li>Rectangle: R width height (input 2 numbers)</li>
+                            <li>Square: S side (input 1 number)</li>
+                            <li>Triangle: T a b c (input 3 numbers)</li>
+                        </ul>
+                    </li>
+                </ol>                
+            </p>
+
+            <p>
+                    Output instructions:
+                    <ol>
+                        <li>From line 1 to line N, output the perimeter of every shape.<br>
+                            For the output of Circle, take π = 4.</li>
+                        <li>Lastly, output the total perimeter of all shapes.</li>
                     </ol>          
             </p>
 
@@ -75,11 +102,20 @@
                 </tr>
                 <tr>
                     <td>
-                        1.72 <br>
-                        60                           
+                        5 <br>
+                        T 3 4 5 <br>
+                        S 1 <br>
+                        R 2 3 <br>
+                        C 1 <br>
+                        T 3 4 6                                                  
                     </td>
                     <td>
-                        BMI: 20.3                                                      
+                        12 <br>
+                        4 <br>
+                        10 <br>
+                        8 <br>
+                        13 <br>
+                        47                                                     
                     </td>
                 </tr>
             </table>
@@ -98,7 +134,7 @@
         function goBack() {
             window.history.back();
         }
-     </script>
-     <script>includeHTML();</script>
+    </script>
+    <script>includeHTML();</script>
 </body>
 </html>

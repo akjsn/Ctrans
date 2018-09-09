@@ -39,33 +39,46 @@
     </script> 
 </head>
 <body class="container-fluid">
-    <div w3-include-html="head.html"></div>
+        <div w3-include-html="head.html"></div>
 
     <div class="cont">
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Body Mass Index (BMI)
+                Polynomials Using Linked Lists
             </h2>
 
             <h6>
-                Fall 2017: Question 5 (use C language to make this program)
+                Spring 2018: Question 33 (use C language to write this program)
             </h6>
 
             <p> <!-- content-->
-                <img src="headers/bmi.jpg" class="head">
-                Input a person’s height (in meters) and weight (in kg) (both <span class="code">double</span>), and then display the BMI of that person.
+                Use linked lists to store the data of two polynomials, then find out the product of the two polynomials.
             </p>
             
-            <table>
-                <tr>
-					<td class="note">BMI = weight / (height * height)</td>
-				</tr>
-            </table>
+            <p>
+                For example, if we have these two polynomials:<br>
+                2x<sup>4</sup> + 3x<sup>3</sup> + x - 1, and <br>
+                x<sup>5</sup> - x<sup>4</sup> + 4x<sup>2</sup> - 3x + 2,
+            </p>
+            <p>
+                then the product of the two polynomials will be:<br>
+                2x<sup>9</sup> + 3x<sup>8</sup> - 2x<sup>7</sup> + 6x<sup>6</sup> + 5x<sup>5</sup> - 6x<sup>4</sup> + 11x<sup>3</sup> - 7x<sup>2</sup> + 5x - 2                    
+            </p>
+            <p>
+                Input instructions:
+                <ol>
+                    <li>Input two lines of data, with each line representing a polynomial.</li>
+                    <li>For each line, input <i>n</i> numbers, which represent coefficients, with the first number representing a variable (x) raised to the power of <i>n</i>-1, the second number representing x raised to the power of <i>n</i>-2, and so on until the last number, which is simply x raised to the power of 0.</li>
+                </ol>               
+            </p>
 
             <p>
-                    Output instruction: Display the BMI in <span class="code">double</span> form, and in ONE decimal place. For example: <span class="code">printf("%.1f",x1);</span></li>
-                    </ol>          
+                Output instructions:
+                <ol>
+                    <li>Output the product of the two polynomials.</li>
+                    <li>If the resulting variable has a coefficient of 0, the variable still has to be displayed.</li>
+                </ol>          
             </p>
 
             <table border=1px>
@@ -75,11 +88,11 @@
                 </tr>
                 <tr>
                     <td>
-                        1.72 <br>
-                        60                           
+                        2 3 0 1 -1 <br>
+                        1 0 -1 4 -3 2                                                                  
                     </td>
                     <td>
-                        BMI: 20.3                                                      
+                        2 3 -2 6 5 -6 11 -7 5 -2                       
                     </td>
                 </tr>
             </table>
@@ -98,7 +111,7 @@
         function goBack() {
             window.history.back();
         }
-     </script>
-     <script>includeHTML();</script>
+    </script>
+    <script>includeHTML();</script>
 </body>
 </html>
