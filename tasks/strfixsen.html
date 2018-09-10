@@ -45,47 +45,45 @@
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Snake Game
+                Using A String To Fix A Sentence
             </h2>
 
             <h6>
-                Spring 2018: Question 37 (use C language to write this program)
+                Spring 2018: Question 27 (use C language to write this program)
             </h6>
 
             <p> <!-- content-->
-                Using a linked list, simulate the gameplay of the snake game we all have ever played in older mobile phones.
+                In this exercise, you have to write a program to read a text in English, and perform operations and modifications on the text based on given commands.
             </p>
             
-            <p>Game rules:
+            <p>
+                Once the program starts running, the pointer is at the first character of the text. The operation commands are as follows:
+                <ul>
+                    <li>0: Moves the pointer to the first character of the text.</li>
+                    <li>$: Moves the pointer to the end position of the text (i.e. the position NEXT to the last character in the text).</li>
+                    <li>x: Removes the character at the current position of the pointer. If the pointer is at the end position of the text, nothing will be removed.</li>
+                    <li>s: Swaps the character at the current position of the pointer with the character at the right of the pointer. If the pointer is at the end position of the text, or is at the last character of the text, nothing will be done.</li>
+                    <li>i: Inserts a character at the current position of the pointer. The character input is the character immediately after the i command. For example, if the command is ix, then x is input at the current position of the pointer. The pointer will stay at its current position after adding the character, i.e. the new character will be the character at the right of the pointer.</li>
+                    <li>u: If the character in the current position of the pointer is an English alphabet, the letter’s case will be changed to upper case. Regardless of the character in the current position of the pointer, the pointer will move one space to the right at the end of this operation.</li>
+                    <li>+: Moves the pointer one space to the right.</li>
+                    <li>-: Moves the pointer one space to the left.</li>
+                </ul>
+            </p>
+
+            <p>
+                Input instructions:
                 <ol>
-                    <li>At the start of the game, the snake has an initial length of 5.</li>
-                    <li>The game field is quadrilateral, and has a size of 10 x 10, and each space in the game field is marked, from (0, 0) to (9, 9), as follows:<br>
-                        <img src="snake/grid.jpg" class="diag"></li>
-                    <li>At the start of the game, the snake’s head is at (4, 0), and the snake’s tail is at (0, 0).<br>
-                        <img src="snake/start.jpg" class="diag"></li>
-                    <li>The system must decide if the move input is legal; and the game can continue if the input is legal. Illegal moves are defined in Point 6 of the game rules.</li>
-                    <li>The snake’s body will grow by 1 if it eats a food item.</li>
-                    <li>If any of the following occur, then the move becomes illegal (and there will be no position changes):
-                        <ul>
-                            <li>snake goes out of bounds (x < 0 or y < 0 or x > 9 or y > 9)</li>
-                            <li>snake touches any part of its own body<br>
-                                For example: When the snake’s tail is at (7, 2) and the snake’s head is at (7, 1), the snake wants to move down to (7, 2) – which is not possible.</li>
-                        </ul>
+                    <li>
+                        In the first line, input a sentence.
                     </li>
-                </ol>
+                    <li>
+                        In the second line, input a series of commands to fix the sentence.
+                    </li>
+                </ol>               
             </p>
 
             <p>
-                Input instruction: For each line of input, input the coordinates (x, y) for the location of the food item, and the movements made by the snake (one character represents the snake moving one space in the direction given – u (up), d (down), l (left), r (right)), all separated with a space.         
-            </p>
-
-            <p>
-                Output instructions:
-                <ol>
-                    <li>If the snake fails to reach the food item, output “Fail”.</li>
-                    <li>If the snake reaches the food item, output “Success”.</li>
-                    <li>If any of the situations described in point 6 of the game rules (illegal moves) occur, output “Game Over” and end the program.</li>
-                </ol>          
+                Output instruction: Output the modified sentence.
             </p>
 
             <table border=1px>
@@ -95,18 +93,11 @@
                 </tr>
                 <tr>
                     <td>
-                        7 0 rr <br>
-                        7 0 r <br>
-                        4 2 ddlll <br>
-                        6 1 urr <br>
-                        7 4 rdd                                                             
+                        hellol, I am a frog.<br>
+                        $-----xxxxipieirisioin0u++xs
                     </td>
                     <td>
-                        Fail <br>
-                        Success <br>
-                        Success <br>
-                        Success <br>
-                        Game Over                      
+                        Hello, I am a person.          
                     </td>
                 </tr>
             </table>

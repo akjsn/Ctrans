@@ -45,47 +45,58 @@
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Snake Game
+                IP Address
             </h2>
 
             <h6>
-                Spring 2018: Question 37 (use C language to write this program)
+                Spring 2018: Question 29 (use C language to write this program)
             </h6>
 
             <p> <!-- content-->
-                Using a linked list, simulate the gameplay of the snake game we all have ever played in older mobile phones.
+                IP addresses consist of four numbers, with each number in the range of 0 to 255 and separated with a period, for example: 140.124.1.255.
             </p>
             
-            <p>Game rules:
-                <ol>
-                    <li>At the start of the game, the snake has an initial length of 5.</li>
-                    <li>The game field is quadrilateral, and has a size of 10 x 10, and each space in the game field is marked, from (0, 0) to (9, 9), as follows:<br>
-                        <img src="snake/grid.jpg" class="diag"></li>
-                    <li>At the start of the game, the snake’s head is at (4, 0), and the snake’s tail is at (0, 0).<br>
-                        <img src="snake/start.jpg" class="diag"></li>
-                    <li>The system must decide if the move input is legal; and the game can continue if the input is legal. Illegal moves are defined in Point 6 of the game rules.</li>
-                    <li>The snake’s body will grow by 1 if it eats a food item.</li>
-                    <li>If any of the following occur, then the move becomes illegal (and there will be no position changes):
-                        <ul>
-                            <li>snake goes out of bounds (x < 0 or y < 0 or x > 9 or y > 9)</li>
-                            <li>snake touches any part of its own body<br>
-                                For example: When the snake’s tail is at (7, 2) and the snake’s head is at (7, 1), the snake wants to move down to (7, 2) – which is not possible.</li>
-                        </ul>
-                    </li>
-                </ol>
+            <p>
+                To make an IP address easier to remember, we can add a nickname.
             </p>
 
             <p>
-                Input instruction: For each line of input, input the coordinates (x, y) for the location of the food item, and the movements made by the snake (one character represents the snake moving one space in the direction given – u (up), d (down), l (left), r (right)), all separated with a space.         
+                If the first two numbers in the IP address of multiple computers are the same, then it can be said that these computers are on the same local network.
+            </p>
+
+            <p>
+                Please write a program to input the IP address of several computers, and find out the computers that are on the same local network.
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>
+                        For every line of input, input the IP address and nickname of a computer, with the IP address and nickname separated with a comma.
+                    </li>
+                    <li>
+                        Input 0.0.0.0,none to end the inputs.
+                    </li>
+                </ol>               
             </p>
 
             <p>
                 Output instructions:
                 <ol>
-                    <li>If the snake fails to reach the food item, output “Fail”.</li>
-                    <li>If the snake reaches the food item, output “Success”.</li>
-                    <li>If any of the situations described in point 6 of the game rules (illegal moves) occur, output “Game Over” and end the program.</li>
-                </ol>          
+                    <li>
+                        If there are computers that are on the same network, output the nicknames of the computers, in order of input, as follows:<br>
+                        machines [nickname 1] and [nickname 2] are on the same local network.                            
+                    </li>
+                    <li>
+                        If there are n (n >= 3) computers on the same network, output the nicknames as follows:<br>
+                        machines [nickname 1], [nickname 2], ... and [nickname n] are on the same local network.                           
+                    </li>
+                    <li>
+                        If the IP address input is invalid (any number greater than 255 or less than 0), output the nicknames of the erroneous IP addresses, in order of input, as follows:<br>
+                        machine [nickname] is error ip<br>
+                        Output only ONE nickname per line.                        
+                    </li>
+                </ol>
             </p>
 
             <table border=1px>
@@ -95,18 +106,21 @@
                 </tr>
                 <tr>
                     <td>
-                        7 0 rr <br>
-                        7 0 r <br>
-                        4 2 ddlll <br>
-                        6 1 urr <br>
-                        7 4 rdd                                                             
+                        111.22.3.44,blue <br>
+                        55.66.7.88,red <br>
+                        111.22.55.55,black <br>
+                        111.2.5.66,green <br>
+                        555.66.1.2,John <br>
+                        111.22.1.1,Tom <br>
+                        55.66.11.22,Mary <br>
+                        1111.1.1.1,Ken <br>
+                        0.0.0.0,none                                                                                          
                     </td>
                     <td>
-                        Fail <br>
-                        Success <br>
-                        Success <br>
-                        Success <br>
-                        Game Over                      
+                        machines blue, black and Tom are on the same local network. <br>
+                        machines red and Mary are on the same local network. <br>
+                        machine John is error ip <br>
+                        machine Ken is error ip            
                     </td>
                 </tr>
             </table>

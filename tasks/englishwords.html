@@ -45,47 +45,56 @@
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Snake Game
+                Analyzing, Replacing, Inserting, and Deleting English Words
             </h2>
 
             <h6>
-                Spring 2018: Question 37 (use C language to write this program)
+                Spring 2018: Question 25 (use C language to write this program)
             </h6>
 
             <p> <!-- content-->
-                Using a linked list, simulate the gameplay of the snake game we all have ever played in older mobile phones.
-            </p>
+                In this program, users first input an English sentence, with each word separated with a space. After that, 2 words P and Q are input.
             
-            <p>Game rules:
+            <p>
+                This exercise requires you to build a program in C to do the following operations on the sentence:
                 <ol>
-                    <li>At the start of the game, the snake has an initial length of 5.</li>
-                    <li>The game field is quadrilateral, and has a size of 10 x 10, and each space in the game field is marked, from (0, 0) to (9, 9), as follows:<br>
-                        <img src="snake/grid.jpg" class="diag"></li>
-                    <li>At the start of the game, the snake’s head is at (4, 0), and the snake’s tail is at (0, 0).<br>
-                        <img src="snake/start.jpg" class="diag"></li>
-                    <li>The system must decide if the move input is legal; and the game can continue if the input is legal. Illegal moves are defined in Point 6 of the game rules.</li>
-                    <li>The snake’s body will grow by 1 if it eats a food item.</li>
-                    <li>If any of the following occur, then the move becomes illegal (and there will be no position changes):
-                        <ul>
-                            <li>snake goes out of bounds (x < 0 or y < 0 or x > 9 or y > 9)</li>
-                            <li>snake touches any part of its own body<br>
-                                For example: When the snake’s tail is at (7, 2) and the snake’s head is at (7, 1), the snake wants to move down to (7, 2) – which is not possible.</li>
-                        </ul>
-                    </li>
+                    <li>Replace any occurrence of word P in the sentence with Q, and output the modified sentence.</li>
+                    <li>Add word Q before any occurrence of P in the sentence, and output the modified sentence.</li>
+                    <li>Remove any occurrence of P in the sentence, and output the modified sentence.</li>
+                    <li>Analyze the sentence and find out how many times every word appears in the sentence, with the results sorted, based on frequency, from high to low.<br>
+                        If more than one word has the same frequency, sort alphabetically from A-Z. Note that uppercase letters (A, B, C, ...)  takes precedence over lowercase letters (a, b, c, ...).</li>
                 </ol>
             </p>
 
             <p>
-                Input instruction: For each line of input, input the coordinates (x, y) for the location of the food item, and the movements made by the snake (one character represents the snake moving one space in the direction given – u (up), d (down), l (left), r (right)), all separated with a space.         
+                Input instructions: Input three lines of data.
+                <ol>
+                    <li>
+                        The first line is the sentence.
+                    </li>
+                    <li>
+                        The second and third lines represent the two words P and Q.
+                    </li>
+                </ol>               
             </p>
 
             <p>
                 Output instructions:
                 <ol>
-                    <li>If the snake fails to reach the food item, output “Fail”.</li>
-                    <li>If the snake reaches the food item, output “Success”.</li>
-                    <li>If any of the situations described in point 6 of the game rules (illegal moves) occur, output “Game Over” and end the program.</li>
-                </ol>          
+                    <li>
+                        For the first line, output the sentence with any occurrences of P replaced with Q.                          
+                    </li>
+                    <li>
+                        For the second line, output the sentence with Q added in front of any occurrence of P.                         
+                    </li>
+                    <li>
+                        For the third line, output the sentence with any occurrence of P omitted in the output.                          
+                    </li>
+                    <li>
+                        From the fourth line onward, output the frequency of every word in order.<br>
+                        Each line shows the word, and how many times the word appears in the sentence, separated with a space.
+                    </li>
+                </ol>
             </p>
 
             <table border=1px>
@@ -95,18 +104,20 @@
                 </tr>
                 <tr>
                     <td>
-                        7 0 rr <br>
-                        7 0 r <br>
-                        4 2 ddlll <br>
-                        6 1 urr <br>
-                        7 4 rdd                                                             
+                        This is a book That is a cook<br>
+                        is<br>
+                        was
                     </td>
                     <td>
-                        Fail <br>
-                        Success <br>
-                        Success <br>
-                        Success <br>
-                        Game Over                      
+                        This was a book That was a cook<br>
+                        This was is a book That was is a cook<br>
+                        This a book That a cook<br>
+                        a 2<br>
+                        is 2<br>
+                        That 1<br>
+                        This 1<br>
+                        book 1<br>
+                        cook 1                                      
                     </td>
                 </tr>
             </table>
