@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Tic-Tac-Toe
+            </h2>
+
+            <h6>
+                Spring 2018: Question 24 (use Python to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                <img src="headers/tictactoe.jpg" class="head">
+                Tic-tac-toe is a two-player game which uses a 3-by-3 grid, with positions as shown:<br>
+                <img src="tictactoe/grid.jpg" class="diag">
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>
+                        Input i to input the positions where the players make their mark.<br>
+                        Input two lines of coordinates (separated with a space); the first line is the input for Player 1, and the second line is the input for Player 2.                            
+                    </li>
+                    <li>
+                        Input w to output the possible winning spaces for Player 1.
+                    </li>
+                    <li>
+                        Input d to output the possible winning spaces for all players.
+                    </li>
+                </ol>               
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>
+                        If, after inputting i, any of the inputs are invalid (e.g. same space for Player 1 and Player 2), output “input error”, and everything that has been input after i up to this point are not considered.
+                    </li>
+                    <li>If w or d is input, output the result(s) as follows:<br>
+                        <ul>
+                            <li>for Player 1: Player 1 will win with (x, y)</li>
+                            <li>for Player 2: Player 2 will win with (x, y)</li>
+                        </ul>
+                    </li>
+                    <li>Be sure to check if there is a winning player after inputs are made.
+                        <ul>
+                            <li>If Player 1 wins, output “Player 1 win”.</li>
+                            <li>If Player 2 wins, output “Player 2 win”.</li>
+                            <li>If the game ends with a tie (both players win or no one wins), output “Fair”.</li>
+                        </ul>    
+                    </li>
+                </ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        i <br>
+                        0 0 <br>
+                        1 1 <br>
+                        i <br>
+                        0 2 <br>
+                        0 2 <br>
+                        i <br>
+                        0 2 <br>
+                        2 2 <br>
+                        d <br>
+                        i <br>
+                        2 0 <br>
+                        1 2 <br>
+                        w <br>
+                        i <br>
+                        1 0 <br>
+                        0 1                            
+                    </td>
+                    <td>
+                        input error <br>
+                        Player 1 will win with (0, 1) <br>
+                        Player 1 will win with (0, 1) <br>
+                        Player 1 will win with (1, 0) <br>
+                        Player 1 win                                  
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
