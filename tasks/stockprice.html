@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  
+                Sudoku Solver
+            </h2>
+
+            <h6>
+                Spring 2018: Question 23 (use Python to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                <img src="headers/stockprices.jpg" class="head">
+                Given an array of stock prices of a company every day during a period of time (30 days at most), write a program to find out the best price to buy and sell the company’s stocks.
+            </p>
+
+            <p> Remember the rule: <b><i>buy low, sell high</i></b> – that’s how you earn a fortune in stock market trading!</p>
+
+            <p>
+                Note that you <b><u>CANNOT</u></b> buy and sell a company’s stocks on the same day.
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>First input the number of days n. (n <= 30)</li>
+                    <li>Input the stock prices for each day during the period of n days. Separate each piece of data with a space.</li>
+                </ol>              
+            </p>
+
+            <p>
+                Output instruction: Output the most favorable buying and selling price.
+            </p>
+
+            <table class="info">
+                <tr>
+                    <th>Please use recursion in this exercise.</th>
+                </tr>
+            </table>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        7 <br>
+                        55.41 109.22 48.27 81.58 105.54 94.49 12.25                      
+                    </td>
+                    <td>
+                        48.27<br>
+                        105.54                            
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>
+            includeHTML();
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  
+                Xiangqi
+            </h2>
+
+            <h6>
+                Spring 2018: Question 21 (use Python to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                <img src="headers/xiangqi.jpg" class="head">
+                In a game of xiangqi (also known as Chinese chess), the ranks of the pieces used are shown in descending order, as shown (note the different names used for black and white pieces):
+                <table style="text-align: center" border=1px>
+                    <tr style="background-color: black; color: white">
+                        <th rowspan=2>Black</th>
+                        <td>將</td>
+                        <td>士</td>
+                        <td>象</td>
+                        <td>車</td>
+                        <td>馬</td>
+                        <td>砲</td>
+                        <td>卒</td>
+                    </tr>
+                    <tr style="background-color: black; color: white">
+                        <td>General</td>
+                        <td>Guard</td>
+                        <td>Elephant</td>
+                        <td>Rook</td>
+                        <td>Horse</td>
+                        <td>Bom</td>
+                        <td>Pawn</td>
+                    </tr>
+                    <tr>
+                        <th rowspan=2>White</td>
+                        <td>帥</td>
+                        <td>仕</td>
+                        <td>相</td>
+                        <td>俥</td>
+                        <td>傌</td>
+                        <td>炮</td>
+                        <td>兵</td>
+                    </tr>
+                    <tr>
+                        <td>King</td>
+                        <td>Assistant</td>
+                        <td>Bishop</td>
+                        <td>Chariot</td>
+                        <td>Knight</td>
+                        <td>Cannon</td>
+                        <td>Soldier</td>
+                    </tr>
+                </table>
+                translator's note: Bom is a typo
+            </p>
+
+            <p>
+                As we start the game, two players have a set of 16 chess pieces which consist of one General, five Soldiers, and two of every other piece. In this exercise, ID numbers are used to represent chess pieces; Black uses IDs 101-116, and White uses IDs 201-216, i.e. for Black, 101 is the General, 102 and 103 are the Guards, 104 and 105 are Elephants, and so on.
+            </p>
+
+            <p>The rules of the battle are, basically, pieces of higher ranks can capture pieces of lower ranks. However, there are some exceptions:
+                <ol>
+                    <li>The General/King can capture any other piece (as it has the highest rank), however, the General/King can be captured by a Pawn/Soldier.</li>
+                    <li>Bombs/Cannons can capture any one piece that is beside it, regardless of distance. For example:<br>
+                        <img src="xiangqi/exc2.JPG" class="diag">
+                        In the above example, the Bomb can capture the Assistant 2 spaces on the right, or the Soldier below, or the Bishop two spaces below.
+                    </li>
+                    <li>Elephants/Bishops can capture another piece only if it is beside the Elephant/Bishop.<br>Elephants and Bishops can capture one another.</li>
+                </ol>
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>In a 3-by-3 array, input the piece’s position, and its ID.</li>
+                    <li>Input -1 as the ID to indicate blank spaces.</li>
+                </ol>                
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>Output all possible opponents that can be captured by every piece on the board.</li>
+                    <li>Use the English names of the pieces in the output.</li>
+                </ol>    
+            </p>
+
+            <table>
+                <tr>
+                    <td class="note"><b><span style="color:red">If done on Python, do not use dictionaries in this exercise.</span></b></td>
+                </tr>
+            </table>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        0 0 101 <br>
+                        1 1 201 <br>
+                        0 1 116 <br>
+                        1 0 211 <br>
+                        0 2 212 <br>
+                        1 2 108 <br>
+                        2 1 110 <br>
+                        2 0 109 <br>
+                        2 2 205
+                                                 
+                    </td>
+                    <td>
+                        General(0,0)->Cannon(1,0) <br>
+                        Pawn(0,1)->Soldier(0,2) <br>
+                        Pawn(0,1)->King(1,1) <br>
+                        Soldier(0,2)->Pawn(0,1) <br>
+                        Cannon(1,0)->Horse(1,2) <br>
+                        King(1,1)->Horse(1,2) <br>
+                        King(1,1)->Bom(2,1) <br>
+                        Horse(1,2)->Soldier(0,2) <br>
+                        Horse(2,0)->Cannon(1,0) <br>
+                        Bishop(2,2)->Horse(1,2) <br>
+                        Bishop(2,2)->Bom(2,1)                                                   
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>
+            includeHTML();
+    </script>
+</body>
+</html>
