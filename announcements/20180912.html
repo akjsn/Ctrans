@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+                <div class="back"><a onclick="goBack()">< BACK</a></div>
+
+                <h2>
+                    Problems with the submission system
+                </h2>
+                
+                <h6>
+                    posted Wednesday, September 12, 2018
+                </h6>
+        
+                <p>
+                    If you are unable to access Kuolao's homework submission system, it is because Kuolao's homework submission system is still on HTTP, and due to new regulations by the Ministry of Education regarding application protocols for college websites, all webpages in college websites must be on HTTPS. If you are trying to access any webpage in Taipei Tech's website (<a href="www.ntut.edu.tw">www.ntut.edu.tw</a>) that still uses HTTP, you will get the following message informing you that your access request is denied:
+                    <img src="20180912/1.JPG">
+                </p>
+
+                <p>
+                    The new policy regarding the use of HTTPS in websites of government agencies and institutions (colleges and universities included) is enforced by the National Development Council, in order to ensure the safety, security, as well as the authenticity of those websites.
+                </p>
+                
+                <p>
+                    Expect updates soon, and we apologize for the inconvenience.
+                </p>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
