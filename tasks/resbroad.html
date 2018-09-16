@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Checking The Results Broadsheet
+            </h2>
+
+            <h6>
+                Spring 2018: Question 20 (use Python to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                A university has just released the results of a recent examination. One of the instructors would like to know who scored above the given standard in a subject, or in the total score.
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>
+                        First, input N, which represents the number of students (100 > N > 2).                         
+                    </li>
+                    <li>
+                        Then, input the students’ names, separated with a space in between.
+                    </li>
+                    <li>
+                        Input the scores of the above students for Chinese (國文), English (英文), Mathematics (數學), Social Science (社會), and Natural Science (自然), separated with a space in between. Scores should be in the range of 1 to 15.
+                    </li>
+                    <li>Inputs in (2) and (3) must be stored in <span class="code">zip</span> format.</li>
+                    <li>Lastly, input the subject name (in Chinese) and the passing grade, separated with a space in between.
+                            Input 國文 for Chinese, 英文 for English, 數學 for Mathematics, 社會 for Social Science, and 自然 for Natural Science. Input 總級分 to search for the total grade.
+                    </li>
+                </ol>               
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>
+                        Output the names of students who scored above the passing grade given in the input, with the names of students separated by a space in between.
+                    </li>
+                    <li>
+                        If there are no students who score above the passing grade, output “NONE”.
+                    </li>
+                </ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        3 <br>
+                        Lucas Alex Candy <br>
+                        15 13 8 <br>
+                        15 12 14 <br>
+                        15 13 10 <br>
+                        15 12 11 <br>
+                        15 12 13 <br>
+                        國文 12                                                       
+                    </td>
+                    <td>
+                        Lucas Alex                                
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Project
+            </h2>
+
+            <h6>
+                Spring 2018: Question 13 (use Python language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                <img src="headers/project.jpg" class="head">
+                Four students W, X, Y, and Z will be doing a project, and they have to choose an instructor from four instructors A, B, C, and D by filling in a form to state their preferences.
+            </p>
+
+            <p>
+                The instructors are assigned based on student preferences, however, if there are two students requesting for the same instructor at the same time, then the final decision on who will be assigned that instructor is based on the instructor’s preferences.
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>
+                        The first 4 lines of input indicate the instructor preferences from students.<br>
+                        These inputs represent the instructor preferences from Students W, X, Y, and Z, respectively.	
+                    </li>
+                    <li>
+                        The second 4 lines of input indicate the student preferences from instructors.<br>
+                        These inputs represent the student preferences from Instructors A, B, C, and D, respectively.
+                    </li>
+                    <li>
+                        Separate each data in every line of input with a comma (,), but without a space in between.
+                    </li>
+                </ol>          
+            </p>
+
+            <p>
+                Output instruction: Output the final student-instructor pairings.
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=15%>Sample Input</th>
+                    <th width=15%>Expected Output</th>
+                    <th width=70%>Explanation</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="color:blue">
+                            <b>A,B,C,D <br>
+                            A,C,B,D </b><br>
+                            D,B,C,A <br>
+                            B,C,A,D </div>
+                        <div style="color:red">
+                            <b>W,X,Y,Z </b><br>
+                            X,W,Y,Z <br>
+                            Y,Z,W,X <br>
+                            X,W,Z,Y</div>                            
+                    </td>
+                    <td>
+                        W->A <br>
+                        X->C <br>
+                        Y->D <br>
+                        Z->B                            
+                    </td>
+                    <td>
+                        Students W and X put Instructor A as their first preference, and Instructor A puts Student W in the first preference, so Student W gets Instructor A.                                                           
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="color:blue">
+                            <b>A,B,C,D <br>
+                            A,C,B,D </b><br>
+                            D,B,C,A <br>
+                            B,C,A,D </div>                                
+                        <div style="color:red">
+                            <b>X,W,Y,Z </b><br>
+                            X,W,Y,Z <br>
+                            Y,Z,W,X <br>
+                            X,W,Z,Y</div>
+                        </div>                            
+                    </td>
+                    <td>
+                        W->C <br>
+                        X->A <br>
+                        Y->D <br>
+                        Z->B                            
+                    </td>
+                    <td>
+                        Students W and X put Instructor A as their first preference, and Instructor A puts Student X in the first preference, so Student X gets Instructor A.                                                         
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
