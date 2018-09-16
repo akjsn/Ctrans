@@ -123,11 +123,16 @@ p{
 footer{
     width:100%;
     background-color:orange;
+    margin-left:-15px;
     padding-left:10px;
 	padding-right:10px;
     position:fixed;
     bottom:0;
     padding-top:5px;
+}
+
+footer p{
+    text-align:center;
 }
 
 table{
@@ -154,6 +159,10 @@ th, td{
 .code{
     font-family: "Courier New";
     font-size: 11pt;
+}
+
+.inlineimg{
+    margin-bottom:5px;
 }
 
 .linkitem{

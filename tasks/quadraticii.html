@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script>
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Solving A Quadratic Equation... with Complex Numbers
+            </h2>
+
+            <h6>
+                Fall 2017: Question 8 (use C language to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                Calculate the roots (real or imaginary) of the quadratic equation Ax<sup>2</sup> + Bx + C = 0. 
+            </p>
+            
+            <div class="note">
+                If done in C, you have to use <span class="code">#include&lt;math.h&gt;</span> to write this program.
+            </div>
+
+            <p>
+                Input instruction: three numbers (all <span class="code">int</span>): A, B, and C          
+            </p>
+
+            <p>
+                    Output instructions:
+                    <ol>
+                        <li>To find the determinant: <img src="quadraticii/det.JPG" class="inlineimg"></li>
+                        <li>First root (in <span class="code">double</span>): x1 = ((-b) + sqrt(b * b - 4 * a * c)) / (2 * a)<br>
+                            Second root (in <span class="code">double</span>):  x2 = ((-b) - sqrt(b * b - 4 * a * c)) / (2 * a)</li>
+                        <li>If T >= 0, then display x1 and x2 as real roots in ONE decimal place.</li>
+                        <li>If T < 0, then display x1 and x2 as imaginary roots in ONE decimal place.<br>
+                            <span class="code">printf("%.1f+%.1fi\n",x11, x12);<br>
+                                    printf("%.1f-%.1fi",x21, x22);</span></li>
+                        <li>If the value of x11 or x21 (as shown in the code above) is 0, then you do not need to display if the number is positive or negative.<br>
+                            x11 and x21 = ((-b) + T) / (2.0 * a)</li>
+                    </ol>          
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        1 <br>
+                        -2 <br>
+                        1                            
+                    </td>
+                    <td>
+                        1.0<br>
+                        1.0                           
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        1 <br>
+                        2 <br>
+                        2                            
+                    </td>
+                    <td>
+                        -1.0+1.0i<br>
+                        -1.0-1.0i                                                     
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+     <script>includeHTML();</script>
+</body>
+</html>
