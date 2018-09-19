@@ -39,32 +39,42 @@
     </script> 
 </head>
 <body class="container-fluid">
-    <div w3-include-html="head.html"></div>
+        <div w3-include-html="head.html"></div>
 
     <div class="cont">
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Statistics
+                Choosing A Mobile Service Plan
             </h2>
 
             <h6>
-                Fall 2017: Question 7 (use C language to make this program)
+                Fall 2018: Question 10 (use Python to write this program)<br>
+                Fall 2017: Question 10 (use C language to write this program)
             </h6>
 
             <p> <!-- content-->
-                From five input numbers, please calculate the average, population variance, and standard deviation, and make sure that the results are rounded down to TWO decimal places.
-                <img src="statistics/1.JPG" class="diag">
+                Based on the amount of intra-network calls, inter-network calls, and landline calls (in seconds), as well as the amount of intra-network SMS messages and inter-network SMS messages, please decide which is the most suitable mobile service plan from the available plans shown below:
+                <img src="mobileplan/1.JPG" class="diag">
             </p>
 
-            <p>Input instruction: Input five numbers.</p>
+            <p>
+                Input instruction: Input the following in order:
+                <ol>
+                    <li>Intra-network calls (seconds)</li>
+                    <li>Inter-network calls (seconds)</li>
+                    <li>Landline calls (seconds)</li>
+                    <li>Intra-network SMS</li>
+                    <li>Inter-network SMS</li>
+                </ol>           
+            </p>
 
             <p>
-                Output instructions:
+                Output instruction: Output the following in order:
                 <ol>
-                    <li>Display the following in order: Variance, Standard deviation, Average</li>
-                    <li>All outputs must be displayed to TWO decimal places.</li>
-                </ol>         
+                    <li>Total amount to be paid</li>
+                    <li>The most suitable mobile service plan (183, 383, or 983)</li>
+                </ol> 
             </p>
 
             <table border=1px>
@@ -73,10 +83,30 @@
                     <th width=50%>Expected Output</th>
                 </tr>
                 <tr>
-                    <td>1 2 8 9 10</td>
-                    <td>14.00<br>
-                        3.74<br>
-                        6.00</td>
+                    <td>
+                        120<br>
+                        150<br>
+                        20<br>
+                        10<br>
+                        5                                                                                
+                    </td>
+                    <td>
+                        183<br>
+                        183                              
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        3000<br>
+                        4000<br>
+                        200<br>
+                        5<br>
+                        5                                                                                
+                    </td>
+                    <td>
+                        767<br>
+                        383                              
+                    </td>
                 </tr>
             </table>
 
@@ -94,7 +124,7 @@
         function goBack() {
             window.history.back();
         }
-     </script>
-     <script>includeHTML();</script>
+    </script>
+    <script>includeHTML();</script>
 </body>
 </html>
