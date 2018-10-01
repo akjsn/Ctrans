@@ -45,59 +45,65 @@
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Bingo
+                Climbing The Stairs
             </h2>
 
             <h6>
-                Spring 2018: Question 14 (use Python language to write this program)
+                Spring 2017: Question 17 (use C language to write this program)
             </h6>
 
             <p> <!-- content-->
                 <!--<img src="headers/project.jpg" class="head">-->
-                We are playing a two-player bingo. Each player has a 3-by-3 grid containg numbers N<sub>1</sub>, N<sub>2</sub>, ... , N<sub>9</sub>.
+                Xiao Ying wants to climb a mountain, and he practices by climbing the stairs of Taipei 101.
             </p>
 
             <p>
-                Note that if N<sub>i</sub> < N<sub>j</sub> when i < j and N<sub>i</sub> > N<sub>j</sub> when i > j, then i <= N<sub>i</sub>, N<sub>j</sub> <= 9, 1 <= i, and j <= 9.
+                Xiao Ying can climb at most three steps at a time (i.e. he can climb 1, 2, or 3 steps at one time); therefore, there are many possible ways to climb the stairs.
             </p>
 
             <p>
-                Three numbers C<sub>1</sub>, C<sub>2</sub>, and C<sub>3</sub> are then chosen. Note that if C<sub>i</sub> <> C<sub>j</sub> when i <> j, then i <= C<sub>i</sub>, C<sub>j</sub> <= 3, 1 <= i, and j <= 3.
-            </p>
-
-            <p>
-                There are three outcomes from this game: Player 1 wins, Player 2 wins, or the match ended in a draw. If the three numbers form a straight line in a player’s bingo grid horizontally, vertially, or diagonally, then the player wins.
-            </p>
-
-            <p>
-                Input instructions:
-                <ol>
-                    <li>
-                        For every test case, input consists of three lines.	
-                    </li>
-                    <li>
-                        First, input two lines of 9 numbers, with each number separated by a space.<br>
-                        The first line is the bingo card of Player 1, and the second line is the bingo card of Player 2.
-                    </li>
-                    <li>
-                        Next, input 3 numbers (also separated with a space). These numbers represent the picked numbers.
-                    </li>
-                    <li>
-                        The numbers for inputs in (2) and (3) must be an integer in the range of 1-9, and all numbers must be different.
-                    </li>
-                    <li>
-                        After every test case, input 0 to continue. To end the program, input -1.
-                    </li>
-                </ol>          
-            </p>
-
-            <p>
-                Output instruction: Every line of output represents the outcome of every test case:
+                For example, if Xiao Ying wants to climb 3 steps, there are four ways:
                 <ul>
-                    <li>If Player 1 wins, output “Player1 wins”.</li>
-                    <li>If Player 2 wins, output “Player2 wins”.</li>
-                    <li>If both players win or no one wins, output “Draw”.</li>
+                    <li>climb one step at a time</li>
+                    <li>climb one step, then climb 2 steps</li>
+                    <li>climb 2 steps, then climb 1 step</li>
+                    <li>climb 3 steps</li>
                 </ul>
+                If Xiao Ying wants to climb 4 steps, then there are 7 ways.
+            </p>
+
+            <p>
+               Xiao Ying can climb at most 70 steps.
+            </p>
+
+            <table class="note">
+                <tr>
+                    <td>
+                        <h4>Hints</h4>
+                        <ol>
+                            <li>The total number of possible ways to climb n steps is the sum of the total number of possible ways to climb n-1, n-2, and n-3 steps.<br>
+                                f(n) = f(n-1) + f(n-2) + f(n-3)
+                            </li>
+                            <li>Please consider whether to use the recursive or non-recursive method to solve this problem. You may also use pointers.</li>
+                            <li>Please use <span class="code">unsigned long long int x; printf("%lld", x);</span></li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="warn">
+                <tr><td>
+                        <h4>WARNING</h4>
+                        Your program must complete execution within <u>8 seconds</u>, otherwise your program will not be accepted !!!
+                </td></tr>
+            </table>
+
+            <p>
+                Input instruction: Input the number of steps to be climbed.         
+            </p>
+
+            <p>
+                Output instruction: Output the number of possible ways to climb the input number of steps.
             </p>
 
             <table border=1px>
@@ -107,24 +113,19 @@
                 </tr>
                 <tr>
                     <td>
-                        1 2 3 4 5 6 7 8 9 <br>
-                        9 8 7 6 5 4 3 2 1 <br>
-                        1 2 3 <br>
-                        0 <br>
-                        1 4 2 5 6 7 3 8 9 <br>
-                        9 8 4 7 6 3 5 2 1 <br>
-                        2 7 9 <br>
-                        0 <br>
-                        9 4 2 5 6 1 3 8 7 <br>
-                        9 8 4 3 6 7 5 2 1 <br>
-                        9 4 8 <br>
-                        -1                           
+                       4                        
                     </td>
                     <td>
-                        Draw<br>
-                        Player1 wins<br>
-                        Player2 wins                           
+                       17                           
                     </td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>927</td>
+                </tr>
+                <tr style="color:red; font-weight:bold">
+                    <td>67</td>
+                    <td>333269972246340068</td>
                 </tr>
             </table>
 

@@ -45,10 +45,30 @@ td{
     margin-right: auto;
 }
 
+table h4{
+    font-weight:bold;
+}
+
 .note{
     padding-top: 10px;
     padding-bottom: 10px;
     border: 1px solid black;
     text-align:center;
     width:100%;
+}
+
+.note ol, .note ul{
+    text-align:left;
+    margin-top:5px;
+    margin-bottom:0;
+}
+
+.warn{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+    text-align:center;
+    width:100%;
+    color:red;
+    font-weight:bold;
 }

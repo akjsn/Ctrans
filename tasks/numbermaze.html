@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Number Maze
+            </h2>
+
+            <h6>
+                Spring 2018: Question 16 (use Python to make this program)<br>
+                Fall 2017: Question 42 (use C language to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                Given a number maze in the form of a 2D array, consisting of numbers (from 0 to 9).<br>
+                To get from the top left edge of the maze to the bottom right edge of the maze, you can move up, down, left, and right (but not diagonally).
+                
+            </p>
+
+            <p>
+                Write a program to find out the lowest cost needed to go from the top left edge of the maze to the bottom right edge of the maze.
+            </p>
+
+            <p>Input instruction: Input the following in order:
+                <ol>
+                    <li>For the first line, input the number of lines N (with the value of N being from 1 to 9).</li>
+                    <li>For the second line, input the number of columns M (with the value of M being from 1 to 9).</li>
+                    <li>Next, input N lines of M numbers, with each number separated by a space.</li>
+                </ol>
+            </p>
+
+            <p>
+                Output instruction: Output the lowest cost needed to go from the top left edge of the maze to the bottom right edge of the maze.
+                </ol>         
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=20%>Sample Input</th>
+                    <th width=50%>Explanation</th>
+                    <th width=30%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>4<br>
+                        5<br>
+                        0 3 1 2 9<br>
+                        7 3 4 9 9<br>
+                        1 7 5 5 3<br>
+                        2 3 4 2 5                            
+                    </td>
+                    <td>
+                        <table border=1px style=text-align:center>
+                            <tr>
+                                <td style=background-color:orange;color:green><b>0</b></td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td style=background-color:orange>7</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>9</td>
+                                <td>9</td>
+                            </tr>
+                            <tr>
+                                <td style=background-color:orange>1</td>
+                                <td>7</td>
+                                <td>5</td>
+                                <td>5</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td style=background-color:orange>2</td>
+                                <td style=background-color:orange>3</td>
+                                <td style=background-color:orange>4</td>
+                                <td style=background-color:orange>2</td>
+                                <td style=background-color:orange;color:red><b>5</b></td>
+                            </tr>
+                        </table>
+                        The maze and the path taken to achieve the given result is shown in the above figure.<br>
+                        In this case, the lowest cost is 0 + 7 + 1 + 2 + 3 + 4 + 2 + 5 = 24.
+                    </td>
+                    <td>
+                        24
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+     <script>includeHTML();</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                A Game of Bridge
+            </h2>
+
+            <h6>
+                Spring 2018: Question 15 (use Python to make this program)<br>
+            </h6>
+
+            <p> <!-- content-->
+                <img src="headers/bridge.jpg" class="head">
+                There are four suits in a deck of poker cards: spades, hearts, diamonds, and clubs.<br>
+                In this program, these are defined as A, B, C, and D, respectively.<br>
+                Each suit contains 13 cards from 1 to 13, for a total of 52 cards in four suits.
+            </p>
+
+            <p>
+                In this program, each card has a code in this format: number and suit.<br>
+                For example, 1A represents the Ace in spades, 7C represents the 7 in diamonds, and 13D represents the King of clubs.
+            </p>
+
+            <p>Rank of suits: Spade > Heart > Diamond > Club<br>
+                Rank of values: A > K > Q > J > 10 > 9 > ... > 3 > 2</p>
+
+            <p>Input instruction: Input the following in order:
+                <ol>
+                    <li>In this game, there are 4 players: P1, P2, P3, and P4. P1 and P3 are in one team, and P2 and P4 are in one team.</li>
+                    <li>First, every player takes a hand of 13 cards.</li>
+                    <li>Then, every player makes a call, starting from P1. Calls continue until “pass” is called three times consecutively, which ends the calling session. At this point, the suit from the last card called becomes the lead suit.</li>
+                    <li>After the calls ended, the next player has to play a card from their hand. The first player in every draw round decides the suit to be drawn in that round, and all players must follow the suit played by the player who started the draw. After all four players play a card, the cards are compared. The player who plays a card with the highest overall rank wins the round and gets a point. Three rounds will be played.</li>
+                    <li>Note that the lead suit from (3) will have a higher rank than the other three suits.<br>
+                        For example: If the lead suit is a club, then the rank of suits will be Club > Spade > Heart > Diamond. This means that, if a player draws out a card belonging to the lead suit, that player wins the round, unless if another player also draws a card which belongs to the lead suit and has a higher value.</li>
+                </ol>
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>Output the number of wins for each player.</li>
+                    <li>Output the winning team.</li>
+                    <li>If any of the following situations occur, output “ERROR”:
+                        <ul>
+                            <li>calls that are not done according to the rules</li>
+                            <li>during the draw rounds, any player (except the first player to play a card in each round) plays a card that is NOT of the same suit as the suit of the card played by the first player, unless if that player has no cards of that suit</li>
+                            <li>a player draws out a card which is not in the player’s hand</li>
+                        </ul>
+                    </li>
+                </ol>         
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=30%>Sample Input</th>
+                    <th width=40%>Explanation</th>
+                    <th width=30%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td><span style=color:green>2A 12B 1B 13D 11A 8A 10A 3D 1D 4D 10D 12A 3B</span><br>
+                        <span style=color:blue>8B 1A 1C 13C 4A 9A 7B 7C 8C 12C 9D 12D 13B</span><br>
+                        <span style=color:orange>10B 5C 5D 2D 4B 5B 9B 3C 9C 10C 7D 11D 8D</span><br>
+                        <span style=color:purple>3A 2B 5A 2C 7A 6B 11B 4C 11C 6A 6C 6D 13A</span><br>
+                        1A<br>
+                        2D<br>
+                        2B<br>
+                        pass<br>
+                        pass<br>
+                        3C<br>
+                        pass<br>
+                        pass<br>
+                        pass<br>
+                        10B 2B 12B 8B<br>
+                        11A 1A 5C 5A<br>
+                        5D 6D 3D 12D
+                    </td>
+                    <td>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        P1 starts call
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        first pass<br>
+                        second consecutive pass<br>
+                        third consecutive pass, call ended with suit C (diamond) becoming lead suit<br>
+                        P3 draws first(first player after draw ended), play order: P3 P4 P1 P2, P1 wins<br>
+                        P1 draws first (winner of previous round), play order: P1 P2 P3 P4, P3 wins<br>
+                        P3 draws first (winner of previous round), play order: P3 P4 P1 P2, P2 wins
+                    </td>
+                    <td>1
+                        1
+                        1
+                        0
+                        P1 P3 
+                    </td>
+                </tr>
+                <tr>
+                    <td><span style=color:green>2A 12B 1C 13D 11A 8A 10A 6C 10C 4D 10D 13A 13C</span> <br>
+                        <span style=color:blue>8B 2B 7A 11C 4A 9A 7B 7C 5C 12C 9D 12D 13B</span> <br>
+                        <span style=color:orange>10B 8C 5D 6A 4B 5B 9B 5A 3C 9C 1D 7D 12A</span> <br>
+                        <span style=color:purple>3A 3B 2C 1A 6B 11B 4C 1B 2D 11D 3D 6D 8D</span><br>
+                        1C <br>
+                        1A <br>
+                        2D <br>
+                        2C <br>
+                        2B <br>
+                        pass <br>
+                        pass <br>
+                        pass<br>
+                        8A 4A 12A 1A<br> 
+                        2C 1C 5C <span style="color:red">5A</span> <br>
+                        2A 9A 12A 3A
+                    </td>
+                    <td>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        P1 starts call
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        first pass<br>
+                        second consecutive pass<br>
+                        third consecutive pass, call ended with suit B (heart) becoming lead suit<br>
+                        P1 draws first(first player after draw ended), play order: P1 P2 P3 P4, P4 wins<br>
+                        play order: P4 P1 P2 P3,<span style=color:red> P3 still has suit C cards, so playing 5A is illegal</span> 
+                    </td>
+                    <td>ERROR
+                    </td>
+                </tr>
+                <tr>
+                    <td><span style=color:green>2A 12B 1C 13D 11A 8A 10A 6C 10C 4D 10D 13A 13C </span><br>
+                        <span style=color:blue>8B 2B 7A 11C 4A 9A 7B 7C 5C 12C 9D 12D 13B </span><br>
+                        <span style=color:orange>10B 8C 5D 6A 4B 5B 9B 5A 3C 9C 1D 7D 12A </span><br>
+                        <span style=color:purple>3A 3B 2C 1A 6B 11B 4C 1B 2D 11D 3D 6D 8D </span><br>
+                        1C <br>
+                        1A <br>
+                        2D <br>
+                        2B <br>
+                        <span style=color:red>2C</span><br>
+                        pass <br>
+                        pass <br>
+                        pass <br>
+                        8A 4A 12A 1A <br>
+                        2C 1C 5C 5A <br>
+                        2A 9A 12A 3A<br>
+                    </td>
+                    <td>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        P1 starts call
+                        <br>
+                        <br>
+                        <br>
+                        <br><span style=color:red>illegal, P1 has no 2C card</span>
+                    </td>
+                    <td>ERROR
+                    </td> 
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+     <script>includeHTML();</script>
+</body>
+</html>
