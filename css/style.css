@@ -187,3 +187,7 @@ th, td{
     max-height: 100px;
     background-color:white;
 }
+
+ul{
+    list-style-type: disc;
+}
