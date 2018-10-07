@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Average Course Grade
+            </h2>
+
+            <h6>
+                Spring 2018: Question 10 (use Python to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                Xiao Ming takes various courses in his first two years of university. He wants to know, for each professor, his average score for all the courses he took that are taught by that professor, in order to find out whose professor’s course should he take in the next semester.
+            </p>
+            
+            <p>
+                Input instructions:
+                <ol>
+                    <li>First, input two numbers N and M.<br>
+                        N denotes the number of courses taken; and M denotes the number of professors.<br>
+                        N should be a number between 2 and 100.<br>
+                        M should be a number between 0 and 10.	
+                    </li>
+                    <li>Next, input N lines of data, which contain the following in order:<br>
+                        Course ID, Course name, and the final grade.<br>
+                        Please store this information in a dictionary.</li>
+                    <li>Then, input M lines of data, which contain the following in order:<br>
+                        Professor’s ID, Professor’s name, and the courses taught.<br>
+                        Please store this information in a list.</li>
+                    <li>Lastly, input the professor’s name.</li>
+                    <li>For all inputs from (1) to (3), separate each piece of information with a space.</li>
+                </ol>     
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>Output the average score (in integer).</li>
+                    <li>If the inputs are out of range, output “Error”.</li>
+                    <li>If the professor’s name is not in the list, output “查無此人” (person not found).</li>
+                </ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input (note: inputs here are in Chinese)</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        5 3 <br>
+                        232100 計算機程式設計(一) 90 <br>
+                        231543 微算機系統 75 <br>
+                        238794 計算機程式設計(二) 96 <br>
+                        238793 離散數學 65<br>
+                        238796 計算機組織 60 <br>
+                        001 郭忠義 232100 238794 <br>
+                        002 陳彥霖 231543 238796 <br>
+                        003 謝東儒 238793 <br>
+                        郭忠義                      
+                    </td>
+                    <td>
+                        93                    
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
