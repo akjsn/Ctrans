@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Passcode Lock
+            </h2>
+
+            <h6>
+                Fall 2018: Question 23 (use Python to write this program)<br>
+                Fall 2017: Question 13 (use C language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                Nowadays, we frequently use a passcode lock to keep our valuables safe, however, if we forget the password for that, then it would be catastrophic!
+            </p>
+            
+            <p>
+                If this happens on a traditional passcode lock (with 4 digits), we will have to try at most 10,000 (10<sup>4</sup>) times before the lock is opened, so we will have to design a system to find out the amount of correct numbers in the password we entered. Using this method, unlocking can become faster.
+            </p>
+            <p>
+                Design a program to determine how many correct numbers are needed before the lock is unlocked.
+            </p>
+            <p>
+                Input instructions:
+                <ol>
+                    <li>This program allows users to input multiple times.
+                    </li>
+                    <li>First, input 4 numbers, each from 0 to 9 (separated with a space); this number represents the correct password.
+                    </li>
+                    <li>For every input afterward, input 4 numbers per line (also from 0 to 9, separated with a space); which represents the number to be tested. One line represents a password to be tested.</li>
+                    <li>An input of -1 terminates the program.</li>
+                </ol>               
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>Output has to be in this format: pAqB, from which:
+                        <ul>
+                            <li>p represents the correct numbers which are in the correct positions</li>
+                            <li>q represents the correct numbers which are NOT in the correct positions</li>
+                        </ul>
+                    </li>
+                    <li>Best result rule: If there are repeated numbers, then the repeated numbers can only be counted once.<br>
+                        For example: If the correct password is 5543, and the user guesses 5255, do not use the first “5” in the guess for comparison against the second number in the correct password; therefore, using the best result rule, the output after comparison has to be 1A1B, from which the first “5” is correct, therefore the result is counted as 1A, however, only one of the “5” (either the third, or the fourth) matches the second “5” in the correct password, therefore the result in this case is counted as 1B. If, in this case, the user guesses 5267, the first “5” in the guess cannot be compared against the second “5” in the correct password, therefore the output is 1A0B.</li>
+                </ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                            1 2 3 4 <br>
+                            1 1 4 5 <br>
+                            1 2 4 3 <br>
+                            1 1 4 4 <br>
+                            4 3 2 1 <br>
+                            -1                                 
+                    </td>
+                    <td>
+                            1A1B <br>
+                            2A2B <br>
+                            2A0B <br>
+                            0A4B                                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>1 1 1 5 <br>
+                            1 1 1 1 <br>
+                            0 9 2 8 <br>
+                            1 5 2 3 <br>
+                            1 1 5 1 <br>
+                            -1
+                            </td>
+                    <td>
+                            3A0B<br> 
+                            0A0B<br> 
+                            1A1B<br> 
+                            2A2B
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
