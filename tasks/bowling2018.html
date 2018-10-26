@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Bowling Again (but shorter)
+            </h2>
+			
+			<h5>
+                For the older version of this exercise, click <a href=bowling2.html>here</a>.
+            </h5>
+
+            <h6>
+                Fall 2018: Question 25 (use Python to write this program)
+            </h6>
+
+            <p> <!-- content-->
+				<img src="headers/bowling.jpg" class="head">
+                <a href="bowling.html">After a few weeks,</a> Xiao Ming goes to the bowling alley for another game of bowling.</p>
+                        
+            <p>
+                Xiao Ming has played eight frames, so he now has only two frames left in his game. Let's assume Xiao Ming did not score anything in the first 8 frames (it's been a few weeks, but too bad Xiao Ming still can't properly bowl...). Please calculate the total score earned for the remaining two frames.
+            </p>
+			
+			<p>
+                The rules are the same as in <a href="bowling.html">the earlier bowling exercise</a>, with the following additional rules:
+				<ul>
+				<li>A player can roll the second ball in a frame if the player did not knock down all 10 pins in the first roll. Otherwise, the frame ends.</li>
+				<li>If a player knocks down all 10 pins in the tenth frame, the player can roll for a third time.</li>
+				</ul>
+            </p>
+			
+			<p>
+				Scoring rules:
+				<ol>
+				<li>One point is awarded for every pin knocked down. The total number of pins knocked down in two throws must be less than 10.<br>
+				For example, if 7 pins and 2 pins are knocked down in the first and second throw, respectively, input: 7 2.<br>
+				The player gets a total of 7 + 2 = 9 points for the frame.</li>
+				<li>If all pins are knocked down in two hits, then the player gets a <b>SPARE</b>.<br> The player can add the total number of pins knocked down in the next one roll into the score.<br>
+				For example, if 7 pins and 3 pins are knocked down in the first and second throw, and in the throw after that, 5 pins are knocked down, input: 7 3.<br>
+				If the spare happens in the tenth frame, input: 7 3 5 0 (note: you can only throw at most three times in the tenth frame!)<br>
+				<img src="bowling/sparedemo.JPG">
+				<img src="bowling/sparedemo10.JPG"><br>
+				The player gets a total of 7 + 3 + 5 = 15 points for the frame with the spare.</li>
+				<li>If all pins are knocked down in one hit, then the player gets a <b>STRIKE</b>. If a player gets a strike, the player cannot throw another ball for that frame.<br> The player can add the total number of pins knocked down in the next two rolls into the score.<br>
+				For example:
+				<ul>
+				<li>if a player gets a strike, and in the two throws following that, 5 pins and 2 pins are knocked down, input: 10 0.<br>
+				If the strike happens in the tenth frame, input: 10 0 5 2.<br>
+				<img src="bowling/strikedemo.JPG">
+				<img src="bowling/strikedemo10.JPG"><br>
+				The player gets a total of 10 + 5 + 2 = 17 points for the frame with the strike (if the strike happened in the tenth frame, the 0 is not counted towards the final score).</li>
+				<li>if a player gets a <a href="https://www.bowling.com/article_bowling_term_glossary.aspx" target="_blank">turkey</a> (three strikes in a row), input 10 0.<br>
+				If the turkey happens in the tenth frame, input: 10 0 10 10.<br>
+				<img src="bowling/strikedemo2.JPG">
+				<img src="bowling/strikedemo210.JPG"></li>
+				</ul>
+				</li>
+				</ol>
+			</p>
+
+            <p>Input instructions:
+                <ol>
+                    <li>Input the scores for each throw in the remaining two frames, one line for each throw.</li>
+                    <li>If all the pins are knocked out in the tenth frame, input the score for the extra throw(s) <b>in the same line</b>.</li>
+                </ol>
+            </p>
+
+            <p>
+                Output instruction: Output the score earned from the two frames.
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=40%>Sample Input</th>
+                    <th width=20%>Expected Output</th>
+					<th width=40%>Explanation (bonus scores in brackets)</th>
+                </tr>
+                <tr>
+                    <td>2 5<br>
+						7 1
+                    <td>15
+                    </td>
+					<td></td>
+                </tr>
+                <tr>
+                    <td>
+                        5 5<br>
+						10 0 8 0<br>
+                    </td>
+                    <td>38</td>
+					<td></td>
+                </tr>
+				<tr>
+                    <td>
+                        10 0<br>
+						10 0 8 2<br>
+                    </td>
+                    <td>48</td>
+					<td>Frame 9 score: 10 + (10 + 8) = 28<br>
+						Frame 10 score: 10 + 8 + 2 = 20<br>
+						Score after Frame 10: 28 + 20 = 48</td>
+                </tr>
+				<tr>
+                    <td>
+                        8 2<br>
+						7 3 8 0<br>
+                    </td>
+                    <td>35</td>
+					<td>Frame 9 score: 8 + 2 + (7) = 17<br>
+						Frame 10 score: 7 + 3 + 8 = 18<br>
+						Score after Frame 10: 17 + 18 = 35</td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+     <script>includeHTML();</script>
+</body>
+</html>
