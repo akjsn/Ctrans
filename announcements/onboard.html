@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+                <div class="back"><a onclick="goBack()">< BACK</a></div>
+
+                <h2>
+					What to expect during Onboard Examinations (上機考試)
+                </h2>
+                
+                <h6>
+                </h6>
+        
+                <p>
+				Here are some things to expect on the day of your onboard examination...
+				</p>
+				
+				<ol>
+				<li>If you come to Kuolao’s TA classes on Wednesday evening, you can use the Internet from the computer you are using. However, on the examination, <b>Internet connection will be cut off as soon as you log on to the operating system of the computer.</b> This is to prevent you from accessing resources that can help you in writing your programs. You will also have no access to your portable devices as well as your notes during the examination.</li>
+				<li>For the practical examination, Code::Blocks will be used as the IDE (Integrated Development Environment) for C, and Notepad++ will be used as the IDE for Python. It is recommended that you get used to the prescribed IDE (besides, when Kuolao demonstrates how to run programs, he will use the above mentioned IDEs for respective programming languages.).</li>
+				<li>On the question paper, there will be a number of questions, each with several sub-questions. When you are doing your examination, you can only call the invigilator to check your program once you have finished the entire question (i.e. not one or two sub-questions). However, starting around 30 minutes before the examination ends, or at any time the invigilators deem fit, you can call the invigilator to check part of your program if you do not complete the entire question.</li>
+				<li>Each question or sub-question carries a specified amount of marks. <b>No partial credit will be given</b> – it’s all or nothing.<br>
+				For example: If a question or sub-question carries 15 marks, then the only way to get the 15 marks is by completing the sub-question to the invigilator’s approval. Fail to do so and you get nothing.</li>
+				<li><b>Some questions may have additional test cases that are NOT printed in the question paper.</b> Your program must also work under the additional test cases in order to receive marks.</li>
+				<li>You will get to know your practical examination score at the end of the examination. Please check that your score is correct before you leave the examination room. Once you leave the examination hall, your score is considered final.</li>
+				</ol>
+				
+				<center><h5 style=color:red>Please uphold academic integrity and do your examinations honestly.</h5>
+				<h4 style=color:red><b>CHEATING IS STRICTLY PROHIBITED. ACADEMIC DISHONESTY CHARGES CAN BE CHARGED AGAINST THOSE WHO CHEAT DURING THE TEST !!!</b></h5></center>
+				
+				<p>Prepare well for the onboard examination, do it well, and survive the course. All the best!</p>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>

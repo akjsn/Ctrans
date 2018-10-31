@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+                <div class="back"><a onclick="goBack()">< BACK</a></div>
+
+                <h2>
+					Midterm is coming...
+                </h2>
+                
+                <h6>
+                    posted Wednesday, October 31, 2018
+                </h6>
+        
+                <p>
+				We are now 8 weeks into the semester, and you will face the midterm examinations next week.
+				</p>
+				
+				<p>
+				Note that for Kuolao's Computer Programming, there will be a midterm examination, which is in the form of an onboard examination (上機考試). More information on what to expect during the onboard examination can be read by clicking <a href="onboard.html">on this link.</a>
+				</p>
+				
+				<p>
+				Try practice the previous questions, this time without looking at the original code. Make sure you know how to solve the problem, and understand the logic behind the code you write.
+				</p>
+				
+				<p>
+				Prepare well for the onboard examination, score well, and survive the course. All the best!
+				</p>
+				
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
