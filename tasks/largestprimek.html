@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Largest Prime Number of k
+            </h2>
+
+            <h6>
+                Fall 2018: Question 29 (use Python to write this program)<br>
+                Fall 2017: Question 29 (use C language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                In this program, the user inputs a number x, and using the following rules, another number k is decided.
+				<table border=1px>
+				<tr>
+				<th width=30%>If x is...</th>
+				<th width=50%>...then k will be...</th>
+				<th width=20%>Example (x → k)</th>
+				</tr>
+				<tr>
+				<td>a positive integer from 2 to 1000</td>
+				<td>x</td>
+				<td>50 → 50</td>
+				</tr>
+				<tr>
+				<td>0 or 1</td>
+				<td>1000</td>
+				<td>0 → 1000</td>
+				</tr>
+				<tr>
+				<td>a negative integer</td>
+				<td>x * -11</td>
+				<td>-90 → 990</td>
+				</tr>
+				<tr>
+				<td>a positive floating number</td>
+				<td>the number <b>before</b> the decimal point</td>
+				<td>66.22 → 66</td>
+				</tr>
+				<tr>
+				<td>a negative floating number</td>
+				<td>the number <b>after</b> the decimal point</td>
+				<td>-33.44 → 44</td>
+				</tr>
+				</table>
+            </p>
+			
+			<p>Write a program to compute the largest prime number in the range of 2 to k.</p>
+			
+            <p>
+                Input instruction: Input a number.    
+            </p>
+
+            <p>
+                Output instructions:
+				<ol>
+				<li>Output the largest prime number in the range of 2 to k.</li>
+				<li>Output "Error!" if the input is invalid.</li>
+				</ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        50                                                 
+                    </td>
+                    <td>
+                        47
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        0                                                 
+                    </td>
+                    <td>
+                        997
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        90                                                 
+                    </td>
+                    <td>
+                        983
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        66.22                                                 
+                    </td>
+                    <td>
+                        61
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        -33.44                                                 
+                    </td>
+                    <td>
+                        43
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        1001                                                 
+                    </td>
+                    <td>
+                        Error!
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Palindromic Numbers
+            </h2>
+
+            <h6>
+                Fall 2018: Question 27 (use Python to write this program)<br>
+                Fall 2017: Question 24 (use C language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                Write a program to list out all palindromic numbers between two input numbers.
+            </p>
+
+            <p>
+                For example:
+				<ul>
+				<li>An input of 80 and 100 will give 88 and 99 as the result.</li>
+				<li>An input of 100 and 200 will give 101, 111, 121, 131, 141, 151, 161, 171, 181, and 191 as the result.</li>
+				</ul>
+            </p>
+
+            <p>
+                Input instruction: Input two numbers.       
+            </p>
+
+            <p>
+                Output instructions:
+				<ol>
+				<li>List all the palindromic numbers in the range of the two input numbers.</li>
+				<li>If there are no palindromic numbers in the range of the two input numbers, output 0.</li>
+				</ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        1 10                                                     
+                    </td>
+                    <td>
+                        0                                
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        10 70                                                     
+                    </td>
+                    <td>
+                        11 22 33 44 55 66                               
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        1300 2000                                                 
+                    </td>
+                    <td>
+                        1331 1441 1551 1661 1771 1881 1991                                
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                        17000 18000                                           
+                    </td>
+                    <td>
+                        17071 17171 17271 17371 17471 17571 17671 17771 17871 17971                 
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
