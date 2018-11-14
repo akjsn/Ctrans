@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+                <div class="back"><a onclick="goBack()">< BACK</a></div>
+
+                <h2>
+					Please log on to the correct webpage...
+                </h2>
+                
+                <h6>
+                    posted Thursday, November 15, 2018
+                </h6>
+        
+                <p>To prevent unwanted things, please make sure you log on to the correct website when you use Kuolao's Homework Submission system.</p>
+
+                <p>The correct webpage is at <a href="https://140.124.184.228/upload/Login" target=_blank>https://140.124.184.228/upload/Login</a>, and on the login page, you should see the following:
+                <img src="20181115/0.JPG" style="width:50%; height:50%; max-width:100%"><br>
+                Note that there is a visitor counter below the OK button: You are the (number)th visitor to this webpage.</p>
+                
+                <p>If you see the following, <b>you are at the system manager's login page.</b> (I don't know, but I found a loophole which led me to that page)<br>
+                <img src="20181115/1.JPG" style="width:50%; height:50%; max-width:100%">
+                <span class="warn" style="text-align:left;font-size:16pt"><br>
+                    LEAVE THE PAGE IMMEDIATELY AND DO NOT KEY IN YOUR LOGIN DETAILS !!!<br>
+                    YOUR IP ADDRESS WILL BE TRACKED IF YOU TRY TO LOG IN THROUGH THIS WEBPAGE.<br>
+                    WE WILL NOT BE RESPONSIBLE FOR ANY CONSEQUENCES ARISING FROM LOGGING IN THROUGH THE WRONG WEBPAGE.</p>
+                
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
