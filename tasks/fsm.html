@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Finite State Machine
+            </h2>
+
+            <h6>
+                Fall 2018: Question 31 (use Python to write this program)<br>
+                Fall 2017: Question 25 (use C language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                A finite state machine flow diagram starts operation from the “Start” state, and includes a number of states represented by ovals, and a number of arrows representing state transitions. A state machine accepts inputs, and can change states depending on the input.
+            </p>
+
+            <p>
+                Write a program to replicate the process of a finite state machine, and identify whether the given input is an “Identifier” or a “Number”. You also have to check whether or not the input is valid.
+            </p>
+
+            <p>
+                Transition Symbols:
+                <table border=1px>
+                    <tr>
+                        <th>State Type</th>
+                        <th>Explanation</th>
+                    </tr>
+                    <tr>
+                        <td>Digit (1)</td>
+                        <td>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</td>
+                    </tr>
+                    <tr>
+                        <td>Period (2)</td>
+                        <td>.</td>
+                    </tr>
+                    <tr>
+                        <td>Blank (3)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Letter (4)</td>
+                        <td>A, B, C, ..., Z; a, b, c, ..., z</td>
+                    </tr>
+                    <tr>
+                        <td>Letter (5)</td>
+                        <td>A, B, C, ..., Z; a, b, c, ..., z</td>
+                    </tr>
+                    <tr>
+                        <td>Digit (6)</td>
+                        <td>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</td>
+                    </tr>
+                    <tr>
+                        <td>Underscore (7)</td>
+                        <td>_</td>
+                    </tr>
+                    <tr>
+                        <td>Blank (8)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Digit (9)</td>
+                        <td>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</td>
+                    </tr>
+                    <tr>
+                        <td>Blank (10)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Others1 (11)</td>
+                        <td>not empty, and contains characters that are none of the following: Letter, Number, Underscore</td>
+                    </tr>
+                    <tr>
+                        <td>Blank (12)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Others2 (13)</td>
+                        <td>not empty, and contains characters that are not a Digit</td>
+                    </tr>
+                    <tr>
+                        <td>Others3 (14)</td>
+                        <td>not empty</td>
+                    </tr>
+                </table>
+            </p>
+
+            <p>
+                Use the following diagram to build the states of your state machine:
+                <img src="https://i.imgur.com/daxjMYk.png" class=diag style="max-width:100%" height=auto>
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>Input all items in one line, with each item separated with a space.</li>
+                    <li>Input a period (.) to mark the end of input.</li>
+                </ol>
+            </p>
+
+            <p>
+                Output instruction: Output whether the input item is valid or not, with each item in a separate line.
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        rate R2D2 48 2 time 555666 .      
+                    </td>
+                    <td>
+                        rate - Identifier <br>
+                        R2D2 - Identifier <br>
+                        48 - Number <br>
+                        2 - Number <br>
+                        time - Identifier <br>
+                        555666 - Number                                            
+                    </td>
+                </tr>
+                <tr>
+                    <td>4132 6rte r_yg t#ee 6677 . </td>
+                    <td>4132 - Number <br>
+                        6rte - Invalid <br>
+                        r_yg - Identifier <br>
+                        t#ee - Invalid <br>
+                        6677 - Number</td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
