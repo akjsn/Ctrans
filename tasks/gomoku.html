@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Gomoku
+            </h2>
+
+            <h6>
+                Fall 2018: Question 33 (use Python to write this program)<br>
+                Spring 2018: Question 6 (use Python to write this program)<br>
+                Fall 2017: Question 38 (use C language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                <img src="gomoku/gomoku.jpg" class=head>
+                Gomoku, also called Gobang or Five in a Row, is a strategy board game, traditionally played with Go pieces (black and white stones) on a Go board, using 15×15 of the 19×19 grid intersections (we will use a 10-by-10 grid in this exercise). Players alternate turns placing a stone of their color on an empty intersection. The winner is the first player to form an unbroken chain of five stones horizontally, vertically, or diagonally.
+            </p>
+            
+            <p>
+                Write a program to check whether there is a line of 5 stones placed in a row on a 10-by-10 grid.
+            </p>
+            <p>
+                1 indicates the presence of a stone on a space.<br>
+                0 indicates the absence of a stone on a space.                    
+            </p>
+
+            <p>
+                Input instruction: Input ten lines, with each line containing a total of 10 zeros and ones, separated with a space in between numbers.      
+            </p>
+
+            <p>
+                Output instruction: Output the positions from which additional stones must be placed at to form a line of 5 stones in a row.
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=20%>Sample Input</th>
+                    <th width=60%>Explanation</th>
+                    <th width=20%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        0 0 0 0 0 0 0 0 1 0<br>
+                        0 0 0 0 0 0 1 1 0 0<br>
+                        0 0 0 0 0 0 1 0 0 0<br>
+                        0 0 0 0 0 0 1 1 1 1<br>
+                        0 0 0 0 1 0 1 0 0 0<br>
+                        0 0 0 0 0 0 0 0 0 0<br>
+                        0 0 0 1 0 0 0 0 0 0<br>
+                        0 0 0 1 0 0 0 0 0 0<br>
+                        0 0 1 1 1 1 0 0 0 0<br>
+                        0 0 0 1 0 0 0 0 0 0                                                                                         
+                    </td>
+                    <td>
+                        Based on the grid on the left, a stone must be placed at any of the positions shown below (marked with an <span style="color:red;font-weight:bold">x</span>) in order to form a line of 5 stones.<br>
+                        <br>
+                        0 0 0 0 0 0 <span style="color:red;font-weight:bold">x</span> 0 1 0<br>
+                        0 0 0 0 0 0 1 1 0 0<br>
+                        0 0 0 0 0 0 1 0 0 0<br>
+                        0 0 0 0 0 <span style="color:red;font-weight:bold">x</span> 1 1 1 1<br>
+                        0 0 0 0 1 0 1 0 0 0<br>
+                        0 0 0 <span style="color:red;font-weight:bold">x</span> 0 0 <span style="color:red;font-weight:bold">x</span> 0 0 0<br>
+                        0 0 0 1 0 0 0 0 0 0<br>
+                        0 0 0 1 0 0 0 0 0 0<br>
+                        0 <span style="color:red;font-weight:bold">x</span> 1 1 1 1 <span style="color:red;font-weight:bold">x</span> 0 0 0<br>
+                        0 0 0 1 0 0 0 0 0 0
+                    </td>
+                    <td>
+                        0 6 <br>
+                        3 5 <br>
+                        5 3 <br>
+                        5 6 <br>
+                        8 1 <br>
+                        8 6                                                 
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
