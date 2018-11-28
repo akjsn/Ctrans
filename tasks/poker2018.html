@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Poker (2018 Edition)
+            </h2>
+
+            <h5>
+                For the older version of this exercise, click <a href=poker.html>here</a>.
+            </h5>
+
+            <h6>
+                Fall 2018: Question 35 (use Python to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                There are four suits in a standard deck of poker cards: spades, <span style="color:red">hearts</span>, <span style="color:red">diamonds</span>, and clubs.<br>
+                In this exercise, these suits are defined as S, H, D, and C, respectively.<br>
+                Each suit contains 13 cards from 1 to 13, for a total of 52 cards in four suits.<br>
+                In this exercise, the values of the cards are from 2 to 13. An Ace (A) has a value of 14.
+            </p>
+
+            <p>Rank of suits: Spade > Heart > Diamond > Club</p>
+
+            <p>
+                In this program, each card has a code in this format: number and suit.<br>
+                For example, 10S represents the 10 in spades, 7D represents the 7 in diamonds, and 12C represents the Queen of clubs.
+            </p>
+
+            <p>
+                Write a program to determine the rank of a hand of cards in a poker game.
+            </p>
+
+            <p>
+                Input instruction: Input the ID of five cards, separated with a space.
+            </p>
+
+            <p>
+                Output instruction: Output a number between 0 and 7, using the following rules:
+                <ol>
+                        <li>If there are two cards of the same rank, the player has a Pair. Output 1.</li>
+                        <li>If there are two different Pairs in a hand of cards, the player has a Two Pair. Output 2.</li>
+                        <li>If there are three cards of the same rank, the player has a Three of a Kind. Output 3.</li>
+                        <li>If the five cards' ranks are in a sequence (e.g. K, Q, J, 10, 9), the player has a Straight. Output 4. (note: 13 (K), 14 (A), 2, 3, 4 is also considered a Straight)</li>
+                        <li>If there is a Three of a Kind and a Pair in a hand of cards, the player has a Full House. Output 5.</li>
+                        <li>If there are four cards of the same rank, the player has a Four of a Kind. Output 6.</li>
+                        <li>If all five cards are of the same suit, the player has a Straight Flush. Output 7.</li>
+                        <li>If none of the above apply, the player has a High Card. Output 0.</li>
+                </ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        9D 8C 8S 8H 9S
+                    </td>
+                    <td>
+                        5                                           
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
