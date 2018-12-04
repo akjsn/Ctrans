@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Generating Waves
+            </h2>
+
+            <h6>
+                Spring 2018: Question 3 (use Python to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                In this exercise, based on a given amplitude and frequency, you have to build a program to generate waves.
+            </p>
+
+            <p>In postfix notation, brackets are not used.</p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>First, input a number N. This number represents the number of test cases.</li>
+                    <li>For each test case, there will be 2 numbers input in two separate lines:
+                        <ul>
+                            <li>The first number represents the amplitude (A) of the wave (this number must be less than 9)</li>
+                            <li>The second number represents the frequency (F).</li>
+                        </ul>
+                    </li>
+                </ol>
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>For every test case, output a wave with amplitude A and frequency F.</li>
+                    <li>The wave output is formed using the number from the current height of the wave.</li>
+                    <li>Leave a blank line after every wave, and after every test case.</li>
+                </ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=20%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                    <th width=30%>Explanation</th>
+                </tr>
+                <tr>
+                    <td>
+                        2<br>
+                        3<br>
+                        2<br>
+                        5<br>
+                        3
+                    </td>
+                    <td>
+                        1 <br>
+                        22 <br>
+                        333 <br>
+                        22 <br>
+                        1 <br>
+                        <br>
+                        1 <br>
+                        22 <br>
+                        333 <br>
+                        22 <br>
+                        1 <br>
+                        <br>
+                        1 <br>
+                        22 <br>
+                        333 <br>
+                        4444 <br>
+                        55555 <br>
+                        4444 <br>
+                        333 <br>
+                        22 <br>
+                        1 <br>
+                        <br>
+                        1 <br>
+                        22 <br>
+                        333 <br>
+                        4444 <br>
+                        55555 <br>
+                        4444 <br>
+                        333 <br>
+                        22 <br>
+                        1 <br>
+                        <br>
+                        1 <br>
+                        22 <br>
+                        333 <br>
+                        4444 <br>
+                        55555 <br>
+                        4444 <br>
+                        333 <br>
+                        22 <br>
+                        1                           
+                    </td>
+                    <td>
+                        Amplitude: 3 <br>
+                        Frequency: 2 <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        Amplitude: 5 <br>
+                        Frequency: 3 <br>                        
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>

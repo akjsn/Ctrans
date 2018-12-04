@@ -45,52 +45,26 @@
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Poker (2018 Edition)
+                Postfix Notation
             </h2>
 
-            <h5>
-                For the older version of this exercise, click <a href=poker.html>here</a>.
-            </h5>
-
             <h6>
-                Fall 2018: Question 35 (use Python to write this program)
+                Spring 2018: Question 4 (use Python to write this program)<br>
+                Fall 2017: Question 35 (use C language to write this program)
             </h6>
 
             <p> <!-- content-->
-                There are four suits in a standard deck of poker cards: spades, <span style="color:red">hearts</span>, <span style="color:red">diamonds</span>, and clubs.<br>
-                In this exercise, these suits are defined as S, H, D, and C, respectively.<br>
-                Each suit contains 13 cards from 1 to 13, for a total of 52 cards in four suits.<br>
-                In this exercise, the values of the cards are from 2 to 13. An Ace (A) has a value of 14.
+                Based on the BODMAS (Brackets, Orders, Division, Multiplication, Addition, Subtraction) concept in mathematics, write a program to output the postfix notation of an input equation.
             </p>
 
-            <p>Rank of suits: Spade > Heart > Diamond > Club</p>
+            <p>In postfix notation, brackets are not used.</p>
 
             <p>
-                In this program, each card has a code in this format: number and suit.<br>
-                For example, 10S represents the 10 in spades, 7D represents the 7 in diamonds, and 12C represents the Queen of clubs.
+                Input instruction: Input an equation no more than 512 characters in length.
             </p>
 
             <p>
-                Write a program to determine the rank of a hand of cards in a poker game.
-            </p>
-
-            <p>
-                Input instruction: Input the ID of five cards, separated with a space.
-            </p>
-
-            <p>
-                Output instruction: Output a number between 0 and 7, using the following rules:
-                <ol>
-                        <li>If there are two cards of the same rank, the player has a Pair. Output 1.</li>
-                        <li>If there are two different Pairs in a hand of cards, the player has a Two Pair. Output 2.</li>
-                        <li>If there are three cards of the same rank, the player has a Three of a Kind. Output 3.</li>
-                        <li>If the five cards' ranks are in a sequence (e.g. K, Q, J, 10, 9), the player has a Straight. Output 4.<br>
-                            (Note: 13 (K), 14 (A), 2, 3, 4 is also considered a Straight in this exercise, <a  href="https://www.contrib.andrew.cmu.edu/~gc00/reviews/pokerrules" target=none><b>but not in the actual game! </b></a>)</li>
-                        <li>If there is a Three of a Kind and a Pair in a hand of cards, the player has a Full House. Output 5.</li>
-                        <li>If there are four cards of the same rank, the player has a Four of a Kind. Output 6.</li>
-                        <li>If all five cards are in a sequence and are of the same suit, the player has a Straight Flush. Output 7.</li>
-                        <li>If none of the above apply, the player has a High Card. Output 0.</li>
-                </ol>
+                Output instruction: Output the input equation in postfix notation.
             </p>
 
             <table border=1px>
@@ -100,10 +74,18 @@
                 </tr>
                 <tr>
                     <td>
-                        9D 8C 8S 8H 9S
+                        a+b*(c-d)^e
                     </td>
                     <td>
-                        5                                           
+                        abcd-e^*+                                           
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        (a-b)^c+(d-e)^f	
+                    </td>
+                    <td>
+                        ab-c^de-f^+                                          
                     </td>
                 </tr>
             </table>
