@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  
+                Largest Area and Perimeter
+            </h2>
+
+            <h6>
+                Fall 2018: Question 43 (use C language to write this program)<br>
+                Fall 2017: Question 31 (use C language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                Write a program to compute the largest area and perimeter based on a series of data inputs in the form of coordinates on a cartesian plane.
+            </p>
+
+            <table border=1px>
+                <tr><td>
+                <p><span class=code>void compute(int x1, int y1, int x2, int y2, int *perimeter, int *area); </span></p>
+    
+                (x1, y1): First point<br>
+                (x2, y2): Second point<br>
+                *perimeter : Perimeter result<br>
+                *area: Area result
+                </td></tr></table>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>For every line, input two points the following order: x1, y1, x2, y2.</li>
+                    <li>An input of -1 ends all input.</li>
+                    <li>Please use absolute value when calculating the lengths of each side of the rectangle.</li>
+                </ol>                
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>Output the largest area and perimeter from all the given inputs.</li>
+                    <li>If the given input cannot form a rectangle, output “Error” and terminate the program.</li>
+                </ol>
+            </p>
+
+            <table class="note">
+                    <tr><td>
+                    If done in C, pointers must be used. <span class="warn">Do not use arrays.</span>
+                    </td></tr></table>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        -10 -10 20 60 <br>
+                        2 2 52 52 <br>
+                        85 8 5 38 <br>
+                        -1              
+                    </td>
+                    <td>
+                        2500<br>
+                        220 
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>
+            includeHTML();
+    </script>
+</body>
+</html>
