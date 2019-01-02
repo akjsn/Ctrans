@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+        <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Arithmetic Operations on Long Numbers
+            </h2>
+
+            <h6>
+                Fall 2018: Question 47 (use C language to write this program)<br>
+                Fall 2017: Question 37 (use C language to write this program)
+            </h6>
+
+            <p> <!-- content-->
+                Design a program to perform arithmetic operation on two long numbers (each with no more than 60 digits), and calculate the addition and subtraction of those numbers.            
+            </p>
+
+            <p>
+                Input instruction: Input two numbers, each not exceeding 60 digits.
+            </p>
+
+            <p>
+                Output instruction: Output the addition and subtraction result of the two numbers.
+            </p>
+
+            <table class="note">
+                <tr>
+                    <td>Arrays are required in this exercise. <br><br>
+
+                        For the sake of clarity, numbers in the below test cases include spaces every 3 digits.<br>
+                        <span class="warn">DURING ACTUAL TESTING, INPUT THE NUMBERS WITHOUT SPACES IN BETWEEN. <br>
+                            DO NOT INCLUDE SPACES IN THE ACTUAL OUTPUT OF THE PROGRAM.</span> 
+                        </td>
+                </tr>
+            </table>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td align=right>
+                        74 678 186 416 540 450 856 046 456 406 565 453 745 354 346 846<br>
+                        42 541 264 516 146 186 481 412 634 534 534 535 674 461      
+                    </td>
+                    <td align=right>
+                        74 678 228 957 804 967 002 232 937 819 199 988 279 890 021 307<br>
+                        74 678 143 875 275 934 709 859 974 993 930 919 210 818 672 385                                            
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
