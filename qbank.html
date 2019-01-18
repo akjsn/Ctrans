@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/qbank.css" rel="stylesheet">
+    <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              } 
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div> 
+
+    
+    <div class="cont">
+        <div class="back"><a onclick="goBack()">< BACK</a></div>
+        <div class="toptitle"><h1>Question Bank</h1></div>
+        <div class="content">
+            <h3>Here is a list of available questions. Click on one to access the page.</h3>
+            <h4><a href="taskinstructions.html">Click here for instructions on how to submit your tasks.</a></h4>
+        </div>
+
+        <div class="tab"> <!-- switch to kuo when semester is on, else switch to cus -->
+                <button class="tablinks" onclick="openSect(event, 'kuo')">Kuolao's Tasks</button>
+                <button id="defaultOpen" class="tablinks" onclick="openSect(event, 'cus')">Custom Questions</button>
+                <button class="tablinks" onclick="openSect(event, 'cha')">Challenges</button>
+        </div>
+            
+        <div id="kuo" class="tabcontent">
+            <h2>Kuolao's Tasks</h2>
+            <p>These are the tasks that can come out in Kuolao's Computer Programming course assignments. These are sorted based on skill.</p>
+
+            <p>If you have suggestions on how should the topics be sorted better, or if a task can be categorized into a better category, let the webmaster know via <a href="contact.html">the contact page</a>.</p>
+
+            <h4>Getting Started</h4>
+            <ul>
+                <li><a href="tasks/hello.html">Hello World!</a> // I am not supposed to place this here, but this can be a start.</li>
+                <li><a href="tasks/scores.html">Calculating the Total Score and Average Score</a></li>
+                <li><a href="tasks/arithmetic.html">Arithmetic Operations</a></li>
+                <li><a href="tasks/quadratic.html">Solving A Quadratic Equation</a></li>
+                <li><a href="tasks/bmi.html">Body Mass Index</a></li>
+                <li><a href="tasks/statistics.html">Statistics</a></li>
+            </ul>
+
+            <h4>If-Else</h4>
+            <ul>
+                <li><a href="tasks/oddeven.html">Odd and Even Numbers</a></li>
+                <li><a href="tasks/3angletypes.html">Types of Triangles</a></li>
+                <li><a href="tasks/quadraticii.html">Solving A Quadratic Equation... with Complex Numbers</a></li>
+                <li><a href="tasks/buysave.html">Buy More, Save More</a></li>
+                <li><a href="tasks/mobileplan.html">Choosing A Mobile Service Plan</a></li>
+                <li><a href="tasks/coursetimings.html">Course Timings</a></li>
+                <li><a href="tasks/overlapline.html">Overlapping Lines</a></li>
+                <li><a href="tasks/bowling.html">Bowling</a></li>
+                <li><a href="tasks/parking.html">Parking Fee</a></li>
+                <li><a href="tasks/electricbill.html">Electricity Bill</a></li>
+                <li><a href="tasks/bowling2.html">Bowling Again</a></li>
+                <li><a href="tasks/equationline.html">Equation Of A Straight Line </a></li>
+            </ul>
+
+            <h4>Loops</h4>
+            <ul>
+                <li><a href="tasks/wavegen.html">Generating Waves</a></li>
+                <li><a href="tasks/shapeofstars.html">Shape of Stars</a></li>
+                <li><a href="tasks/hashnum.html">Hashes and Numbers</a></li>
+                <li><a href="tasks/shapeofnumbers.html">Shape of Numbers</a></li>
+                <li><a href="tasks/sumoffactorial.html">Sum of Factorials</a></li>
+                <li><a href="tasks/mathhw.html">Mathematics Homework</a></li>
+                <li><a href="tasks/numconv.html">Number Conversion</a></li>
+                <li><a href="tasks/overlapline2.html">Overlapping Lines II</a></li>
+                <li><a href="tasks/passcodelock.html">Passcode Lock</a></li>
+                <li><a href="tasks/consecutiveint.html">Sum of Consecutive Integers</a></li>
+                <li><a href="tasks/palindrome.html">Palindromic Numbers</a></li>
+                <li><a href="tasks/largestprimek.html">Largest Prime Number of k</a></li>
+                <li><a href="tasks/equationline.html">Equation of A Straight Line</a></li>                
+                <li><a href="tasks/stockprice.html">Stock Prices</a></li>
+            </ul>
+
+            <h4>Pointers (C language)</h4>
+            <ul>
+                <li><a href="tasks/fractionoperations.html">Fraction Operations</a></li>
+                <li><a href="tasks/areaperimeter.html">Largest Area and Perimeter</a></li>
+            </ul>
+
+            <h4>Arrays</h4>
+            <ul>
+                <li><a href="tasks/numguess.html">Guess A Number</a></li>
+                <li><a href="tasks/ldgrid.html">Lucky Draw Grid</a></li>
+                <li><a href="tasks/gomoku.html">Gomoku</a></li>
+                <li><a href="tasks/sudokucheck.html">Sudoku Checker</a></li>
+                <li><a href="tasks/sudokusolve.html">Sudoku Solver</a></li>
+                <li><a href="tasks/aoln.html">Arithmetic Operations on Long Numbers</a></li>
+                <li><a href="tasks/bingo.html">Bingo</a></li>
+                <li><a href="tasks/numbermaze.html">Number Maze</a></li>
+                <li><a href="tasks/project.html">Project</a></li>
+                <li><a href="tasks/crackcode.html">Cracking The Code</a></li>
+                <li><a href="tasks/resbroad.html">Checking The Results Broadsheet</a></li>
+                <li><a href="tasks/tictactoe.html">Tic-Tac-Toe</a></li>
+            </ul>
+
+            <h4>Stacks and Queues</h4>
+            <ul>
+                <li><a href="tasks/postfix.html">Postfix Notation</a></li>
+            </ul>
+
+            <h4>Recursion</h4>
+            <ul>
+                <li><a href="tasks/stairclimb.html">Stair Climb</a></li>
+                <li><a href="tasks/familytree.html">Family Tree</a></li>
+            </ul>
+
+            <h4>Strings</h4>
+            <ul>
+                <li><a href="tasks/englishwords.html">Analyzing, Replacing, Inserting, and Deleting English Words</a></li>
+                <li><a href="tasks/plagcheck.html">Plagiarism Checker</a></li>
+                <li><a href="tasks/strfixsen.html">Using A String To Fix A Sentence</a></li>
+            </ul>
+
+            <h4>Structures and Union Types</h4>
+            <ul>
+                <li><a href="tasks/sstruct.html">Shape Structure</a></li>
+                <li><a href="tasks/sstruct2.html">Shape Structure II</a></li>
+            </ul>
+            
+            <h4>Linked Lists</h4>
+            <ul>
+                <li><a href="tasks/polyllist.html">Polynomials using Linked Lists</a></li>
+                <li><a href="tasks/polyllist2.html">More Polynomials Using Linked Lists</a></li>
+                <li><a href="tasks/stackllist.html">Stack Using Linked Lists</a></li>
+                <li><a href="tasks/snake.html">Snake Game</a></li>
+                <li><a href="tasks/queuellist.html">Queue Using Linked Lists</a></li>
+                <li><a href="tasks/studentscorellist.html">Student Score Data using Linked Lists</a></li>
+                <li><a href="tasks/binarytree.html">Binary Tree</a></li>
+                <li><a href="tasks/stackqueuedllist.html">Stacks and Queues using Doubly Linked Lists</a></li>
+            </ul>
+
+            <h4>Miscellaneous</h4>
+            <ul>
+                <li><a href="tasks/fsm.html">Finite State Machine</a></li>
+                <li><a href="tasks/poker.html">Poker</a></li>
+                <li><a href="tasks/bridge.html">A Game of Bridge</a></li>
+                <li><a href="tasks/courseaverage.html">Average Course Grade</a></li>
+                <li><a href="tasks/salaryraise.html">Salary Raise</a></li>
+                <li><a href="tasks/onlinefriends.html">Making Friends Online</a></li>
+                <li><a href="tasks/xiangqi.html">Xiangqi</a></li>
+                <li><a href="tasks/rpg.html">An RPG Game</a></li>
+            </ul>
+        </div>
+
+        <div id="cus" class="tabcontent">
+            <h2>Custom Questions</h2>
+            <p>Custom-made by the webmaster.</p>
+
+            <h4>Custom-Made Questions</h4>
+            <ul>
+                <li><a href="cq/indnum.html">Indian Numerals</a></li>
+                <li><a href="cq/rcardg.html">Report Card Grade</a></li>
+            </ul>
+        </div>
+
+        <div id="cha" class="tabcontent">
+            <h2>Challenges</h2>
+            <p>Step up your game and challenge yourself! The following are basically harder versions of Kuolao's tasks.</p>
+
+            <h4>Challenges</h4>
+            <ul>
+                <li>Coming soon...</a></li>
+            </ul>
+        </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        includeHTML();
+    </script>
+    <script>
+        function openSect(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <script>
+    document.getElementById("defaultOpen").click();
+    </script>
+</body>
+</html>

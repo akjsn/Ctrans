@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Indian Numerals
+            </h2>
+
+            <h6>
+                based on <a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=13&page=show_problem&problem=1042" target=_blank>UVA10101: Bangla Numbers</a>
+            </h6>
+
+            <p> <!-- content-->
+                In Indian English, lakh is used to represent 100,000, and crore is used to represent 10 million. 1,000 is still represented in the usual form in English language.
+            </p>
+
+            <p>
+                In addition, a number in Indian figures uses the following pattern on the placement of the comma separator, starting from the ones place:
+                <ol>
+                    <li>One comma after three numbers</li>
+                    <li>One comma after two numbers</li>
+                    <li>One comma after two numbers</li>
+                </ol>
+                If there are more numbers after the above pattern is completed, the pattern starts again.
+            </p>
+
+            <p>
+                Examples of numbers in Indian numerals:
+                <ul>
+                    <li>100,000 is written as 1,00,000</li>
+                    <li>10,000,000 is written as 1,00,00,000</li>
+                    <li>1,000,000,000 is written as 100,00,00,000</li>
+                </ul>
+            </p>
+
+            <p>
+                Write a program from which the user inputs a number (<span class="code">unsigned long int</span>) and the program should convert the input number into Indian numerals, both in number and text.
+            </p>
+
+            <p>
+                Input instruction: Input a number.
+            </p>
+
+            <p>
+                Output instruction: Output the following in order: Indian numeral (in numbers), Indian numeral (in text).
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        1024                                                    
+                    </td>
+                    <td>
+                        1024<br>
+                        1 thousand 24                               
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        113469                                                  
+                    </td>
+                    <td>
+                        1,13,469<br>
+                        1 lakh 13 thousand 469                             
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        15471000
+                    </td>
+                    <td>
+                        1,54,71,003<br>
+                        1 crore 54 lakh 71 thousand 3
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        3256402617
+                    </td>
+                    <td>
+                        325,64,02,617<br>
+                        325 crore 64 lakh 2 thousand 617
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>

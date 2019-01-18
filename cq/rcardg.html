@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Report Card Grade
+            </h2>
+
+            <h6>
+            </h6>
+
+            <p> <!-- content-->
+                Every time the report card is out, you will get to know how well you did in the subjects you take.
+            </p>
+
+            <p>
+                You would like to know the term grade and GPA for the courses you take. Write a program to achieve this function.
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>For each line, input two numbers in order: score (integer between -1 to 100), credit count (positive integer). Separate each of the two numbers with a space.<br>
+                        Note that a score of -1 represents the score of a course that was withdrawn, and this course's score will not count towards the term grade and GPA.</li>
+                    <li>An input of -1 -1 ends all input.</li>
+                </ol>
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>In the first line, output the total credits taken during the semester, excluding credits for courses that have been withdrawn.</li>
+                    <li>In the second line, output the total credits earned during the semester. To earn credits for a course, the course's score must be at least 60.</li>
+                    <li>In the third line, output the term grade correct to 2 decimal places. The term grade is calculated as follows: <img src=rcardg/1.JPG class=inlineimg> </li>
+                    <li>In the fourth line, output the GPA correct to 2 decimal places. The GPA is calculated as follows: <img src=rcardg/2.JPG class=inlineimg><br>
+                    To determine the grade points, use the following table:<br>
+                    <table border=1px style="min-width:20%">
+                        <tr>
+                            <th>Score</td>
+                            <th>Grade Points</td>
+                        </tr>
+                        <tr>
+                            <td>90-100</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>80-89</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>70-79</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>60-69</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>0-59</td>
+                            <td>0</td>
+                        </tr>
+                    </table></li>
+                    <li>Lastly, if all the scores are at least 60, and there are no withdrawn courses, output "You passed all the subjects for this semester!"</li>
+                    <li>If any of the inputs is invalid, output "ERROR" upon detection, and terminate the program.</li>
+                </ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        75 2<br>
+                        64 3<br>
+                        80 2<br>
+                        78 3<br>
+                        69 1<br>
+                        90 0<br>
+                        87 3<br>
+                        -1 -1                                               
+                    </td>
+                    <td>
+                        Credits taken: 14<br>
+                        Credits earned: 14<br>
+                        Term Grade: 76.14 <br>
+                        GPA: 2.07<br><br>
+                        You passed all the subjects for this semester!
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        56 3<br>
+                        70 2<br>
+                        73 3<br>
+                        47 4<br>
+                        75 2<br>
+                        83 2<br>
+                        -1 -1                                                    
+                    </td>
+                    <td>
+                        Credits taken: 16<br>
+                        Credits earned: 9<br>
+                        Term Grade: 64.44 <br>
+                        GPA: 1.25                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        78 3<br>
+                        70 2<br>
+                        73 3<br>
+                        -1 4<br>
+                        75 2<br>
+                        83 2<br>
+                        -1 -1                                                    
+                    </td>
+                    <td>
+                        Credits taken: 12<br>
+                        Credits earned: 12<br>
+                        Term Grade: 75.75 <br>
+                        GPA: 2.17                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        90 2<br>
+                        -4 1
+                    </td>
+                    <td>
+                        ERROR
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    <script>includeHTML();</script>
+</body>
+</html>
