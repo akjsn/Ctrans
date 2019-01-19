@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/article.css" rel="stylesheet">
+    <link href="../css/challenge.css" rel="stylesheet">
+    <script>
+            function includeHTML() {
+              var z, i, elmnt, file, xhttp;
+              /*loop through a collection of all HTML elements:*/
+              z = document.getElementsByTagName("*");
+              for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                  /*make an HTTP request using the attribute value as the file name:*/
+                  xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                      /*remove the attribute, and call this function once more:*/
+                      elmnt.removeAttribute("w3-include-html");
+                      includeHTML();
+                    }
+                  } 
+                  xhttp.open("GET", file, true);
+                  xhttp.send();
+                  /*exit the function:*/
+                  return;
+                }
+              }
+            }
+    </script> 
+</head>
+<body class="container-fluid">
+    <div w3-include-html="head.html"></div>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Checking Course Timings (again)
+            </h2>
+
+            <p> <!-- content-->
+                Please check whether or not the timings of <b>four</b> courses clash.
+            </p>
+
+            <p>Input instruction: Input the following in order:
+                <ol>
+                    <li>Course ID (four digits)</li>
+                    <li>Course hours per week (1 or 2 hours)</li>
+                    <li>Course timings (two digits, as follows):
+                        <ul>
+                            <li>First digit: 1 for Monday, 2 for Tuesday, 3 for Wednesday, 4 for Thursday, and 5 for Friday.</li>
+                            <li>Second digit: A number from 1 to 8, indicating the period in which the course is held.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>If the timings of the courses clash, please output the courses which clash in the following order: Course ID, Course ID, clashed timings</li>
+                    <li>If none of the courses’ timings clash, please output “correct”.</li>
+                    <li>If there are any errors in input, please output “-1”.</li>
+                </ol>         
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=50%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>1002<br>
+                        2<br>
+                        33<br>
+                        59<br>
+                        1003<br>
+                        2<br>
+                        11<br>
+                        33<br>
+                        3003<br>
+                        2<br>
+                        11<br>
+                        33<br>
+                        3222<br>
+                        2<br>
+                        58<br>
+                        59
+                    </td>
+                    <td>1002,1003,33<br>
+                        1002,3003,33<br>
+                        1002,3222,59<br>
+                        1003,3003,11<br>
+                        1003,3003,33
+                    </td>
+                </tr>
+                <tr>
+                    <td>1001<br>
+                        2<br>
+                        12<br>
+                        13<br>
+                        1002<br>
+                        2<br>
+                        13<br>
+                        21<br>
+                        1003<br>
+                        2<br>
+                        21<br>
+                        25<br>
+                        1004<br>
+                        2<br>
+                        25<br>
+                        26
+                    </td>
+                    <td>1001,1002,13<br>
+                        1002,1003,21<br>
+                        1003,1004,25
+                    </td>
+                </tr>
+                <tr>
+                    <td>1001<br>
+                        1<br>
+                        21<br>
+                        1002<br>
+                        2<br>
+                        32<br>
+                        33<br>
+                        1003<br>
+                        2<br>
+                        45<br>
+                        46<br>
+                        2005<br>
+                        2<br>
+                        34<br>
+                        35<br>
+                        </td>
+                    <td>correct</td>
+                </tr>
+                <tr>
+                    <td>101<br>
+                        3<br>
+                        99<br>
+                        1002<br>
+                        2<br>
+                        32<br>
+                        33<br>
+                        1003<br>
+                        2<br>
+                        45<br>
+                        46<br>
+                        1008<br>
+                        1<br>
+                        49</td>
+                    <td>-1</td>   
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+     <script>includeHTML();</script>
+</body>
+</html>
