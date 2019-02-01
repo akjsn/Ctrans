@@ -18,9 +18,9 @@ header{
     padding-left: 20px;
 }
 
-.himage h1{
+.himage h1{ /* ##DD0002 for fall, #267717 for spring*/
     padding-top: 80px;
-    color: #DD0002;
+    color: #267717; 
     font-size: 32px;
     font-weight: 700;
 	text-shadow: 4px 4px #000000;
