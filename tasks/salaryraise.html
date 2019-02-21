@@ -5,41 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/article.css" rel="stylesheet">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/article.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.includeHTML.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script>
-            function includeHTML() {
-              var z, i, elmnt, file, xhttp;
-              /*loop through a collection of all HTML elements:*/
-              z = document.getElementsByTagName("*");
-              for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                /*search for elements with a certain atrribute:*/
-                file = elmnt.getAttribute("w3-include-html");
-                if (file) {
-                  /*make an HTTP request using the attribute value as the file name:*/
-                  xhttp = new XMLHttpRequest();
-                  xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4) {
-                      if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-                      if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-                      /*remove the attribute, and call this function once more:*/
-                      elmnt.removeAttribute("w3-include-html");
-                      includeHTML();
-                    }
-                  } 
-                  xhttp.open("GET", file, true);
-                  xhttp.send();
-                  /*exit the function:*/
-                  return;
-                }
-              }
-            }
-    </script> 
+        $(document).ready(function(){
+            $('header').loadHTML('headin.html');
+        })
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
 </head>
+
 <body class="container-fluid">
-        <div w3-include-html="head.html"></div>
+    <header>
+    </header>
 
     <div class="cont">
 		<div class="content">
@@ -103,18 +90,9 @@
             <h3>Good Luck!</h3>
 		</div>
     </div>
-    
+          
     <footer>
         <p>Website designed by AK. #kuolovesu</p>
     </footer>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
-    <script>includeHTML();</script>
 </body>
 </html>
