@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/article.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.includeHTML.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('header').loadHTML('../headin.html');
+        })
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+</head>
+
+<body class="container-fluid">
+    <header>
+    </header>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                <i>n</i> Words Before and After...
+            </h2>
+
+            <h6>
+                Spring 2019: Question 12 (use C language to write this program)<br>
+                Spring 2017: Question 11 (use C language to write this program)
+            </h6>
+
+            <p>
+                The objective of this program is to output <i>n</i> words before and after a given word in a phrase.
+            </p>
+
+            <p>
+                Input instructions:
+                <ol>
+                    <li>
+                        First, input the following in order: word, number of words, and arrangement direction (L or R; L for left, R for right)
+                    </li>
+                    <li>
+                        Next, input a phrase with maximum length of 5 lines (in 5 separate lines). If you do not want to input a phrase in a line, input 0 for that line.<br>
+                        Note that the phrases can only contain letters and spaces. The phrases are not case sensitive.
+                    </li>
+                </ol>               
+            </p>
+
+            <p>
+                Output instructions:
+                <ol>
+                    <li>
+                        For every appearance of the given word in the first line of input, output that word as well the <i>n</i> words before and after it.<br>
+                        Output the given word in uppercase, and everything else in lowercase.                         
+                    </li>
+                    <li>
+                        Arrange them on increasing number of letters before or after the word, based on the arrangement direction given in the input. If the number of letters are the same, arrange them in increasing alphabetical order.                
+                    </li>
+                </ol>
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=50%>Sample Input</th>
+                    <th width=30%>Expected Output</th>
+                    <th width=20%>Explanation</th>
+                </tr>
+                <tr>
+                    <td>
+                        man 3 L <br>
+                        Descent of Man <br>
+                        He Look Like an Apple Man and Pie can be eat <br>
+                        0 <br>
+                        0 <br>
+                        0 
+                    </td>
+                    <td>
+                        descent of MAN <br>
+                        like an apple MAN and pie can                                      
+                    </td>
+                    <td>
+                        "descent of" has 9 letters<br>
+                        "like an apple" has 11 letters
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Man 3 L <br>
+                        Descent oF Man The Ascent of Man The Old Man and The Sea A Portrait of The Artist As a Young Man <br>
+                        0 <br>
+                        0 <br>
+                        0 <br>
+                        0 
+                    </td>
+                    <td>
+                        as a young MAN <br>
+                        descent of MAN the ascent of <br>
+                        man the old MAN and the sea <br>
+                        the ascent of MAN the old man                                      
+                    </td>
+                    <td>
+                        "descent of" has 9 letters<br>
+                        "like an apple" has 11 letters
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+</body>
+</html>
