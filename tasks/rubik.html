@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/article.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.includeHTML.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('header').loadHTML('../headin.html');
+        })
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+</head>
+
+<body class="container-fluid">
+    <header>
+    </header>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                Rubik's Cube
+            </h2>
+
+            <h6>
+                Spring 2019: Question 16 (use C language to write this program)
+            </h6>
+
+            <p>
+                The net of a rubik's cube looks like the following:
+                <img src="rubik/cube.JPG" class=diag>
+                For the sake of clarity:
+                <ul>
+                    <li>The first number represents the side -- 1 for the first side, 2 for the second side, and so on.</li>
+                    <li>The second number represents the position of a square in the side. For each side, 0 represents the topleft most square, and 8 represents the bottomright most square.</li>
+                </ul>
+            </p>
+
+            <p>
+                A rubik's cube can be moved left (L), right (R), up (U), or down (D). A rubik's cube can also be rotated (C). Input format as shown below.
+            </p>
+
+            <p>
+                Movement examples:
+                <ul>
+                    <li>0R: The row where square 0 resides (i.e. top row) is moved left. Resulting positions are as shown.<br>
+                        <img src="rubik/1.JPG">
+                    </li>
+                    <li>0U: The column where square 0 resides (i.e. left column) is moved up. Resulting positions are as shown.<br>
+                        <img src="rubik/2.JPG"></li>
+                </ul>
+            </p>
+
+            <p>
+                The rubik's cube can be rotated left or right.
+                <ul>
+                    <li>CL: Rotates the cube left.<br>
+                        <img src="rubik/3.JPG">
+                    </li>
+                    <li>CR: Rotates the cube right.<br>
+                        <img src="rubik/4.JPG"></li>
+                </ul>
+            </p>
+
+            <p>
+                <b>In this exercise, we will only look at side 2.</b>
+            </p>
+                
+            <p>
+                Input instructions:
+                <ol>
+                    <li>Input the movement commands based on the examples shown above.</li>
+                    <li>An input of -1 ends all input.</li>
+                </ol>  
+            </p>
+
+            <p>
+                Output instruction: Once -1 is input, output the current positions of face 2 on the cube.
+            </p>
+
+            <table border=1px>
+                    <tr>
+                        <th width=50%>Sample Input</th>
+                        <th width=50%>Expected Output</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            4R <br>
+                            8U <br>
+                            0D <br>
+                            CL <br>
+                            -1 
+                        </td>
+                        <td>
+                            42 45 48 <br>
+                            21 14 27 <br>
+                            60 63 66                                 
+                        </td>
+                    </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+    
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+</body>
+</html>
