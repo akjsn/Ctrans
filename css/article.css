@@ -34,6 +34,21 @@ ol{
     margin-top:-1rem !important;
 }
 
+ul{
+    margin-left:-10px;
+    margin-top:-1rem !important;
+}
+
+ul ol{
+    margin-left:-10px;
+    margin-top:0 !important;
+}
+
+ol ul{
+    margin-left:-10px;
+    margin-top:0 !important;
+}
+
 td{
     vertical-align: baseline;
     padding-left: 5px;

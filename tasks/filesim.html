@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/article.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.includeHTML.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('header').loadHTML('../headin.html');
+        })
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+</head>
+
+<body class="container-fluid">
+    <header>
+    </header>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                File Simulator
+            </h2>
+
+            <h6>
+                Spring 2019: Question 23 (use C language to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                Write a program to simulate file operations.
+            </p>
+
+            <p>
+                The program has the following functions:
+                <ol>
+                    <li>Write File<br>
+                        Refer to the following code for a guide on the file structure:
+                        <table>
+                            <tr>
+                                <td class="code">
+                                    struct file { <br>
+                                    char* name; <br>
+                                    int list[]; <br>
+                                    }; </td>
+                            </tr>
+                        </table>
+                        </li>
+                    <li>Read File</li>
+                    <li>Edit File</li>
+                    <li>Exit</li>
+                </ol>
+            </p>
+
+            <p>
+                Instructions: Each function has its own set of instructions.
+                <ul>
+                    <li>Write File
+                        <ol>
+                            <li>First, input a file name. (<span class="code">name</span>)</li>
+                            <li>Then, input numbers from 0 to 255 one number at a time. Every number is stored sequentially in the file (we are using <span class="code">list</span> for this one).</li>
+                            <li>Input -1 to end input.</li>
+                            <li>If the file names repeat, output "Error".</li>
+                        </ol>
+                    </li>
+                    <li>Read File
+                        <ol>
+                            <li>First, Input the file name. If the file does not exist, output "Error".</li>
+                            <li>Output the file size in bytes.</li>
+                            <li>Output the file's contents in binary, with each bit separated.</li>
+                        </ol>
+                    </li>
+                    <li>Edit File
+                        <ol>
+                            <li>First, Input the file name. If the file does not exist, output "Error".</li>
+                            <li>Input a number m, which represents the item to be edited.</li>
+                            <li>Input a second number n, which represents the new value for m.</li>
+                        </ol>
+                    </li>
+                </ul>                
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=15%>Sample Input</th>
+                    <th width=32.5%>Explanation</th>
+                    <th width=20%>Expected Output</th>
+                    <th width=32.5%>Explanation</th>
+                </tr>
+                <tr>
+                    <td>
+                        1 <br>
+                        a.bin <br>
+                        10 <br>
+                        20 <br>
+                        30 <br>
+                        40 <br>
+                        50 <br>
+                        60 <br>
+                        70 <br>
+                        80 <br>
+                        -1 <br>
+                        <span style=color:orange>2 <br>
+                        a.bin <br></span>
+                        3 <br>
+                        a.bin <br>
+                        2 <br>
+                        1 <br>
+                        <span style=color:blue>2 <br>
+                        a.bin <br></span>
+                        <span style=color:red>1 <br>
+                        a.bin <br>
+                        10 <br>
+                        -1 <br></span>
+                        4                     
+                    </td>
+                    <td>
+                        write file<br>
+                        input file name<br>
+                        insert data <br><br><br><br><br><br><br><br>
+                        end input<br>
+                        <span style=color:orange>read file<br>
+                        input file name<br></span>
+                        edit file<br>
+                        input file name<br>
+                        choose item to be edited<br>
+                        new value for the selected item<br>
+                        <span style=color:blue>read file<br>
+                        input file name<br></span>
+                        <span style=color:red>write file<br>
+                        input file name<br>
+                        insert data <br>
+                        end input<br></span>
+                        exit
+                    </td>
+                    <td>
+                        <span style=color:orange>8 bytes <br>
+                        0 0 0 0 1 0 1 0 <br>
+                        0 0 0 1 0 1 0 0 <br>
+                        0 0 0 1 1 1 1 0 <br>
+                        0 0 1 0 1 0 0 0 <br>
+                        0 0 1 1 0 0 1 0 <br>
+                        0 0 1 1 1 1 0 0 <br>
+                        0 1 0 0 0 1 1 0 <br>
+                        0 1 0 1 0 0 0 0 <br></span>
+                        <span style=color:blue>8 bytes <br>
+                        0 0 0 0 1 0 1 0 <br>
+                        0 0 0 0 0 0 0 1 <br>
+                        0 0 0 1 1 1 1 0 <br>
+                        0 0 1 0 1 0 0 0 <br>
+                        0 0 1 1 0 0 1 0 <br>
+                        0 0 1 1 1 1 0 0 <br>
+                        0 1 0 0 0 1 1 0 <br>
+                        0 1 0 1 0 0 0 0 <br></span>
+                        <span style=color:red>Error </span>                                               
+                    </td>
+                    <td>
+                        <span style=color:orange>Size of a.bin<br>
+                        Contents of a.bin (in binary)<br><br><br><br><br><br><br><br></span>
+                        <span style=color:blue>Size of modified a.bin<br>
+                        Contents of modified a.bin (in binary)<br><br><br><br><br><br><br><br></span>
+                        <span style=color:red>a.bin already exists</span>
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+          
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+</body>
+</html>
