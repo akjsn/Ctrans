@@ -32,28 +32,29 @@
 		<div class="content">
             <div class="back"><a onclick="goBack()">< BACK</a></div>
             <h2>  <!-- article title -->
-                Logic Circuit
+                Logic Circuit (4 inputs)
             </h2>
 
             <h5>
-                <a href="logicircuit4sw.html">Click here for the harder version.</a>
+                <a href="logicircuit.html">Click here for the easier version.</a>
             </h5>
 
             <h6>
-                Spring 2019: Question 22 (use C language to make this program)<br>
-                Spring 2017: Question 23 (use C language to make this program)
+                Spring 2019: Question 26 (use C language to make this program)
             </h6>
 
             <p> <!-- content-->
                 Given a logic circuit as shown, make a program to simulate the circuit.
-                <img src="logicircuit/circuit.jpg" class=diag>
-                Input for this circuit is X1, X2, and X3, while the output is Y1, Y2, and Y3.<br>
+                <img src="logicircuit/circuitv2.JPG" class=diag>
+                Input for this circuit is X1, X2, X3, and X4 while the output is Y1, Y2, Y3, and Y4.<br>
             </p>
 
             <p>
                 Gate P can either be a NOT gate or nothing; and the output of Gate P fans out to Y1 and one of the inputs to Gate Q.<br>
                 Gate Q can either be an AND or OR gate; and the output of Gate Q fans out to Y2 and one of the inputs to Gate R.<br>
-                Gate R can either be an AND or OR gate; and the output of Gate R fans out to Y3.<br>
+                Gate R can either be an AND or OR gate; and the output of Gate R fans out to Y3 and one of the inputs to Gate T.<br>
+                Gate S can either be an AND or OR gate; and the output of Gate R fans out to one of the inputs to Gate T.<br>
+                Gate T can either be an AND or OR gate; and the output of Gate T fans out to Y4.<br>
             </p>
             
             <p>
@@ -101,13 +102,13 @@
             <p>
                 Input instruction: Input two lines.
                 <ol>
-                    <li>First, the values of X1, X2, and X3 (0 or 1), separated with a comma.</li>
-                    <li>Then, define the gates for P, Q, and R -- E for no gate, A for AND gate, O for OR gate, and N for NOT gate.</li>
+                    <li>First, the values of X1, X2, X3, and X4 (0 or 1), separated with a comma.</li>
+                    <li>Then, define the gates for P, Q, R, S, and T -- E for no gate, A for AND gate, O for OR gate, and N for NOT gate.</li>
                 </ol>                
             </p>
 
             <p>
-                    Output instruction: Output the values of Y1, Y2, and Y3, separated with a comma. 
+                    Output instruction: Output the values of Y1, Y2, Y3, and Y4, separated with a comma. 
             </p>
 
             <table border=1px>
@@ -117,11 +118,11 @@
                 </tr>
                 <tr>
                     <td>
-                        0,1,0 <br>
-                        N,A,O                      
+                        0,1,0,1 <br>
+                        N,A,O,A,O                       
                     </td>
                     <td>
-                        1,1,1                                                 
+                        1,1,1,1                                               
                     </td>
                 </tr>
             </table>
