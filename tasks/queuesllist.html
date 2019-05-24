@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kuolao's Computer Programming Survival Guide</title>
+    <link href="../css/article.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.includeHTML.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('header').loadHTML('../headin.html');
+        })
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+     </script>
+</head>
+
+<body class="container-fluid">
+    <header>
+    </header>
+
+    <div class="cont">
+		<div class="content">
+            <div class="back"><a onclick="goBack()">< BACK</a></div>
+            <h2>  <!-- article title -->
+                <u><i>Queues</i></u> Using Linked Lists
+            </h2>
+
+            <h5>
+                <i>Note: This exercise uses multiple queues. For a single queue, <a href="queuellist.html">click here.</a></i>
+            </h5>
+
+            <h6>
+                Spring 2019: Question 28 (use C language to make this program)
+            </h6>
+
+            <p> <!-- content-->
+                Make a program to demonstrate the concept of queues using linked lists.  
+            </p>
+            
+            <p>
+                Designing queues in C require structures or classes, and these structures or classes are linked to one another using a linked list.<br>
+                In this exercise, the contents of the queue will be numbers (<span class="code">int</span>).
+            </p>
+
+            <p>
+                Functions:
+                <ol>
+                    <li>Create Queue<br>
+                    Builds and names a new queue.</li>
+                    <li>Enqueue<br>
+                    Input a queue name, and insert a number.<br>
+                    </li>
+                    <li>Dequeue<br>
+                    Input a queue name, and an item will be removed from the end of the queue.<br>
+                    If there is nothing in the queue, output "Queue is empty".</li>
+                    <li>Merge Queue<br>
+                    Input two queue names, then link the second queue to the first queue. The second queue will be deleted upon merge.</li>
+                    <li>Print All Queues<br>
+                    Outputs all queue data, which contains the queue name, size, and elements.<br>
+                    Output should be based on the following code:
+                    <table>
+                        <tr>
+                            <td class="code">
+                                printf("****************************************"); <br>
+                                printf("Queue Name:[queue name] Queue Size:[queue size] Queue Element:[queue elements]", queue->name, count); // first queue<br>
+                                printf("Queue Name:[queue name] Queue Size:[queue size] Queue Element:[queue elements]", queue->name, count); // second queue<br>
+                                // and so on... <br>
+                                printf("****************************************");
+                            </td>
+                        </tr>
+                    </table>
+                    If there are no queues, output "Isn't have any queue".<br>
+                    If a queue exists, but has no elements, output "Queue is empty" after "Queue Element:".</li>
+                    <li>Exit<br>
+                    Exits the program.</li>
+                </ol>
+            </p>
+
+            <p>
+                Input instruction: Input one of the following numbers to enter into a function.
+                <ol>
+                    <li>Create Queue</li>
+                    <li>Enqueue</li>
+                    <li>Dequeue</li>
+                    <li>Merge Queue</li>
+                    <li>Print All Queues</li>
+                    <li>Exit</li>
+                </ol>                
+            </p>
+
+            <p>
+                    Output instruction: For Enqueue, Dequeue, and Merge Queue functions, if the specified queue name does not exist, output "Queue [name of queue] isn't exist".     
+            </p>
+
+            <table border=1px>
+                <tr>
+                    <th width=20%>Sample Input</th>
+                    <th width=80%>Expected Output</th>
+                </tr>
+                <tr>
+                    <td>
+                        1 <br>
+                        AAA <br>
+                        1 <br>
+                        BBB <br>
+                        2 <br>
+                        AAA <br>
+                        1 <br>
+                        2 <br>
+                        AAA <br>
+                        3 <br>
+                        2 <br>
+                        AAA <br>
+                        4 <br>
+                        2 <br>
+                        AAA <br>
+                        <b><span style=color:blue>5</span> <br></b>
+                        2 <br>
+                        AAA <br>
+                        6 <br>
+                        2 <br>
+                        BBB <br>
+                        7 <br>
+                        <b><span style=color:green>5</span> <br></b>
+                        4 <br>
+                        AAA <br>
+                        BBB <br>
+                        5 <br>
+                        6                                                       
+                    </td>
+                    <td>
+                        <span style=color:blue>
+                        **************************************** <br>
+                        Queue Name:AAA Queue Size:5 Queue Element:1 3 4 5 6 <br>
+                        Queue Name:BBB Queue Size:1 Queue Element:7 <br>
+                        **************************************** <br></span>
+                        <span style=color:green>
+                        **************************************** <br>
+                        Queue Name:AAA Queue Size:6 Queue Element:1 3 4 5 6 7 <br>
+                        ****************************************     </span>                     
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Good Luck!</h3>
+		</div>
+    </div>
+          
+    <footer>
+        <p>Website designed by AK. #kuolovesu</p>
+    </footer>
+</body>
+</html>
