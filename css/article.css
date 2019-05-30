@@ -75,7 +75,7 @@ table h4{
 
 .note ol, .note ul{
     text-align:left;
-    margin-top:5px;
+    margin-top:5px !important;
     margin-bottom:0;
 }
 
